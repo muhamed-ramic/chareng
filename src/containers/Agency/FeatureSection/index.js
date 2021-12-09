@@ -7,6 +7,7 @@ import FeatureBlock from 'common/components/FeatureBlock';
 import data from 'common/data/Agency';
 import Container from 'common/components/UI/Container';
 import FeatureSectionWrapper from './featureSection.style';
+import { Icon } from 'react-icons-kit';
 
 const FeatureSection = ({
   row,
@@ -34,7 +35,7 @@ const FeatureSection = ({
           {data.features.map((feature, index) => (
             <Box className="col" {...col} key={`feature-${index}`}>
               <FeatureBlock
-                icon={<i className={feature.icon} />}
+                icon={<Icon icon={feature.icon} />}
                 wrapperStyle={blockWrapperStyle}
                 iconStyle={iconStyle}
                 contentStyle={contentStyle}
@@ -73,10 +74,11 @@ FeatureSection.defaultProps = {
     as: 'span',
     display: 'block',
     textAlign: 'center',
-    fontSize: '22px',
+    background: 'linear-gradient(to right, #f6e27a 0, #cb9b51 22%, #f6e27a 45%, #f6e27a 50%, #f6e27a 55%, #f6e27a 78%, #f6e27a 100%)',
+    color: 'transparent',
+    fontSize: '24px',
     letterSpacing: '0.15em',
     fontWeight: '700',
-    color: '#ffd700',
     mb: '10px',
   },
   // section title default style

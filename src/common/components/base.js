@@ -16,6 +16,7 @@ import {
   alignSelf,
   color,
   compose,
+  background,
 } from 'styled-system';
 
 export const themed = (key) => (props) => props.theme[key];
@@ -36,7 +37,8 @@ export const base = compose(
   alignSelf,
   borders,
   borderColor,
-  display
+  display,
+  background,
 );
 
 base.propTypes = {

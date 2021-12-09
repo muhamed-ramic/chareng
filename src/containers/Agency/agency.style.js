@@ -13,6 +13,7 @@ import { themeGet } from '@styled-system/theme-get';
 const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'Roboto', sans-serif;
+    background: #b1aeae;
   }
   h1,
   h2,

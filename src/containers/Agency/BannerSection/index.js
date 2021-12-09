@@ -83,14 +83,16 @@ BannerSection.defaultProps = {
   title: {
     fontSize: ['26px', '34px', '42px', '55px'],
     fontWeight: '300',
-    color: '#ffd700',
     letterSpacing: '-0.025em',
     mb: ['20px', '25px'],
+    color: 'transparent',
+    background: 'linear-gradient(to right, #f6e27a 0, #cb9b51 22%, #f6e27a 45%, #f6e27a 50%, #f6e27a 55%, #f6e27a 78%, #f6e27a 100%)',
     lineHeight: '1.31',
   },
   description: {
     fontSize: '16px',
-    color: '#ffd700',
+    color: 'transparent',
+    background: 'linear-gradient(to right, #f6e27a 0, #cb9b51 22%, #f6e27a 45%, #f6e27a 50%, #f6e27a 55%, #f6e27a 78%, #f6e27a 100%)',
     lineHeight: '2.1',
     mb: '0',
   },

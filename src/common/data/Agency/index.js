@@ -6,6 +6,12 @@ import Member2 from '../../assets/image/agency/team/member-2.jpg';
 import Member3 from '../../assets/image/agency/team/member-3.jpg';
 import Denny from '../../assets/image/agency/client/denny.png';
 import Menny from '../../assets/image/agency/client/menny.png';
+import { home } from 'react-icons-kit/fa/home';
+import { pencil } from 'react-icons-kit/fa/pencil';
+import { calculator } from 'react-icons-kit/fa/calculator';
+import { laptop } from 'react-icons-kit/iconic/laptop';
+import { spreadsheet } from 'react-icons-kit/iconic/spreadsheet';
+
 
 const data = {
   menuItems: [
@@ -65,43 +71,36 @@ const data = {
   features: [
     {
       id: 1,
-      icon: 'flaticon-pencil-case',
+      icon: home,
       title: 'Design of Steel Structures',
       description:
         'Structural design of steel',
     },
     {
       id: 2,
-      icon: 'flaticon-pencil-case',
+      icon: pencil,
       title: 'Drafting',
       description:
         'We make the drawings for steel structures.',
     },
     {
       id: 3,
-      icon: 'flaticon-ruler',
+      icon: laptop,
       title: 'Modeling in various softwares',
       description:
         'CAD / CAM softwares',
     },
     {
       id: 4,
-      icon: 'flaticon-next',
+      icon: calculator,
       title: 'Calculations',
       description:
         '',
     },
     {
       id: 5,
-      icon: 'flaticon-briefing',
-      title: 'Finite Element Method Analysis FEM analysis',
-      description:
-        '',
-    },
-    {
-      id: 6,
-      icon: 'flaticon-creative',
-      title: 'Finite Element Method Analysis FEA analysis',
+      icon: spreadsheet,
+      title: 'Finite Element Method Analysis FEM analysis & FEA',
       description:
         '',
     },

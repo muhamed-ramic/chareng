@@ -72,6 +72,11 @@ const IconWrapper = styled.div`
   ${borderRadius}
   ${overflow}
   ${fontSize}
+
+  svg {
+    width: 28px;
+    height: 28px;
+  }
 `;
 
 // Content wrapper style

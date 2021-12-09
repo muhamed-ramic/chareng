@@ -103,8 +103,9 @@ VideoSection.defaultProps = {
     textAlign: 'center',
     fontSize: '24px',
     letterSpacing: '0.15em',
+    background: 'linear-gradient(to right, #f6e27a 0, #cb9b51 22%, #f6e27a 45%, #f6e27a 50%, #f6e27a 55%, #f6e27a 78%, #f6e27a 100%)',
+    color: 'transparent',
     fontWeight: '700',
-    color: '#ffd700',
     mb: '10px',
   },
   // section title default style

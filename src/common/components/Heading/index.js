@@ -7,18 +7,22 @@ import {
   textAlign,
   lineHeight,
   letterSpacing,
+  backgroundImage
 } from 'styled-system';
 import { base, themed } from '../base';
 
-const HeadingWrapper = styled('p')(
-  base,
-  fontFamily,
-  fontWeight,
-  textAlign,
-  lineHeight,
-  letterSpacing,
-  themed('Heading')
-);
+const HeadingWrapper = styled.p`
+  ${base}
+  ${fontFamily}
+  ${fontWeight}
+  ${textAlign}
+  ${lineHeight}
+  ${letterSpacing}
+  ${backgroundImage}
+  -webkit-background-clip: text;
+  backgound-clip: text;
+  ${themed('Heading')}
+  `;
 
 const Heading = ({ content, ...props }) => (
   <HeadingWrapper {...props}>{content}</HeadingWrapper>

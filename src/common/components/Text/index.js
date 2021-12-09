@@ -7,18 +7,22 @@ import {
   textAlign,
   lineHeight,
   letterSpacing,
+  backgroundImage,
+
 } from 'styled-system';
 import { base, themed } from '../base';
 
-const TextWrapper = styled('p')(
-  base,
-  fontFamily,
-  fontWeight,
-  textAlign,
-  lineHeight,
-  letterSpacing,
-  themed('Text')
-);
+const TextWrapper = styled.p`
+  ${base}
+  ${fontFamily}
+  ${fontWeight}
+  ${textAlign}
+  ${lineHeight}
+  ${letterSpacing}
+  -webkit-background-clip: text;
+  backgound-clip: text;
+  ${themed('Text')}
+  `
 
 const Text = ({ content, ...props }) => (
   <TextWrapper {...props}>{content}</TextWrapper>
