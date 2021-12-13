@@ -1,5 +1,5 @@
 const withPlugins = require('next-compose-plugins');
-const optimizedImages = require('next-optimized-images');
+const withVideos = require('next-videos');
 
 const nextConfig = {
   // distDir: '../../dist/functions/next'
@@ -10,4 +10,4 @@ const nextConfig = {
   },
 };
 
-module.exports = withPlugins([], nextConfig);
+module.exports = withPlugins([withVideos], nextConfig);

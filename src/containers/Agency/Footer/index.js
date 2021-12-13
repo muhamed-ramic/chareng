@@ -32,8 +32,7 @@ const Footer = ({
               title="Agency"
               logoStyle={logoStyle}
             />
-            <Text content="hello@redq.io" {...textStyle} />
-            <Text content="+479-443-9334" {...textStyle} />
+            <Text content="ChargENG Inc" {...textStyle} />
           </Box>
           {/* End of footer logo column */}
           <Box {...colTwo}>
@@ -43,9 +42,15 @@ const Footer = ({
                 <List>
                   {widget.menuItems.map((item) => (
                     <ListItem key={`list__item-${item.id}`}>
-                      <Link href={item.url}>
-                        <a className="ListItem">{item.text}</a>
-                      </Link>
+                      {
+                      widget.isEmailHref?
+                        <a href={"mailto:" + item.url} className="ListItem">{item.text}</a>
+                      :
+                       <Link href={item.url}>
+                        <a href={item.url} className="ListItem">{item.text}</a>
+                       </Link>
+                      }
+                      
                     </ListItem>
                   ))}
                 </List>

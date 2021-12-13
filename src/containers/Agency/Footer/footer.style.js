@@ -3,12 +3,9 @@ import { themeGet } from '@styled-system/theme-get';
 import FooterImage from 'common/assets/image/agency/footer-bg.png';
 
 const FooterWrapper = styled.section`
-  padding: 80px 0;
+  padding: 40px 0;
   margin-top: 40px;
-  background-image: url(${FooterImage?.src});
-  background-repeat: no-repeat;
-  background-position: center 50px;
-  border-top: 1px solid #efefef;
+  border-top: 1px solid rgba(255, 215, 0 ,1);
   overflow: hidden;
   @media (max-width: 990px) {
     padding-bottom: 30px;

@@ -292,7 +292,7 @@ const data = {
       icon: pencil,
       title: 'Drafting',
       description:
-        'We make the drawings for steel structures.',
+        'Workshop (fabrication) drawing',
     },
     {
       id: 3,
@@ -311,9 +311,9 @@ const data = {
     {
       id: 5,
       icon: spreadsheet,
-      title: 'Finite Element Method Analysis FEM analysis & FEA',
+      title: 'Finite Element Method Analysis',
       description:
-        '',
+        'FEM, FEA',
     },
   ],
   qualityFeature: [
@@ -518,121 +518,41 @@ const data = {
   ],
   menuWidget: [
     {
-      id: 1,
-      title: 'About Us',
+      id: 2,
+      title: 'Contact information',
+      isEmailHref: true,
       menuItems: [
         {
-          id: 1,
-          url: '#1',
-          text: 'Support Center',
-        },
-        {
           id: 2,
-          url: '#2',
-          text: 'Customer Support',
+          url: 'emir.neziric@chargeng.ba',
+          text: 'English and Bosnian: emir.neziric@chargeng.ba',
         },
         {
-          id: 3,
-          url: '#3',
-          text: 'About Us',
-        },
-        {
-          id: 4,
-          url: '#4',
-          text: 'Copyright',
-        },
-        {
-          id: 5,
-          url: '#5',
-          text: 'Popular Campaign',
+          id: 1,
+          url: 'lejla.cardzic@chargeng.ba',
+          text: 'English and Finnish: lejla.cardzic@chargeng.ba',
         },
       ],
     },
     {
       id: 2,
-      title: 'Our Information',
+      isEmailHref: false,
+      title: 'Site',
       menuItems: [
         {
-          id: 1,
-          url: '#1',
-          text: 'Return Policy',
-        },
-        {
-          id: 2,
-          url: '#2',
-          text: 'Privacy Policy',
-        },
-        {
           id: 3,
-          url: '#2',
-          text: 'Terms & Conditions',
+          url: '#bannerSection',
+          text: 'Home',
         },
         {
           id: 4,
-          url: '#4',
-          text: 'Site Map',
+          url: '#featureSection',
+          text: 'Feature',
         },
         {
           id: 5,
-          url: '#5',
-          text: 'Store Hours',
-        },
-      ],
-    },
-    {
-      id: 3,
-      title: 'My Account',
-      menuItems: [
-        {
-          id: 1,
-          url: '#1',
-          text: 'Press inquiries',
-        },
-        {
-          id: 2,
-          url: '#2',
-          text: 'Social media directories',
-        },
-        {
-          id: 3,
-          url: '#3',
-          text: 'Images & B-roll',
-        },
-        {
-          id: 4,
-          url: '#4',
-          text: 'Permissions',
-        },
-        {
-          id: 5,
-          url: '#5',
-          text: 'Speaker requests',
-        },
-      ],
-    },
-    {
-      id: 4,
-      title: 'Policy',
-      menuItems: [
-        {
-          id: 1,
-          url: '#1',
-          text: 'Application security',
-        },
-        {
-          id: 2,
-          url: '#2',
-          text: 'Software principles',
-        },
-        {
-          id: 3,
-          url: '#3',
-          text: 'Unwanted software policy',
-        },
-        {
-          id: 4,
-          url: '#4',
-          text: 'Responsible supply chain',
+          url: '#videoSection',
+          text: 'Work',
         },
       ],
     },

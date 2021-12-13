@@ -49,6 +49,7 @@ const Main = () => {
           <FeatureSection />
           <VideoSection />
           <TestimonialSection />
+          <Footer />
 
           {/* <AboutUsSection /> */}
           {/* <WorkHistory />
