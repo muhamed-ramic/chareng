@@ -114,6 +114,23 @@ const GlobalStyle = createGlobalStyle`
   .reuseModalHolder {
     border: 0 !important;
     background-color: transparent !important;
+    .innerRndComponent {
+      img.img-modal__img {
+        @media only screen and (min-width: 769px) {
+          min-width: 0 !important;
+          width: 75% !important;
+          margin: auto auto !important;
+          height: auto !important;
+          min-height: 0px !important;
+        }
+        @media only screen and (max-width: 768px) {
+          min-width: 0 !important;
+          width: 100% !important;
+          height: auto !important;
+          min-height: 0px !important;
+        }
+      }
+    }
     &.search-modal,
     &.video-modal {
       background-color: rgba(255, 255, 255, 0.96) !important;
@@ -128,6 +145,10 @@ const GlobalStyle = createGlobalStyle`
           width: 100% !important;
           height: 100% !important;
           border-radius: 5px !important;
+        }
+        img.img-modal__img {
+          width: 100% !important;
+          height: auto;
         }
       }
     }

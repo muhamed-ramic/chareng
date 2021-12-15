@@ -8,6 +8,10 @@ const nextConfig = {
     loader: 'akamai',
     path: '',
   },
+  // i18n: {
+  //   locales: ['en-US', 'fi', 'bs'],
+  //   defaultLocale: 'en-US',
+  // },
 };
 
 module.exports = withPlugins([withVideos], nextConfig);

@@ -37,27 +37,27 @@ const TestimonialSection = ({ sectionWrapper, row, sectionSubTitle, col, col2, c
     />
   );
   const ModalContent = (props) => (
-    <NextImage src={props.imgSrc} layout="fill"></NextImage>
+    <NextImage className="img-modal__img" src={props.imgSrc} layout="fill"></NextImage>
   );
   const handleImgModal = (imgComponentSrc) => {
-    // openModal({
-    //   className: 'video-modal',
-    //   config: {
-    //     disableDragging: true,
-    //     default: {
-    //       width: '100%',
-    //       height: '100%',
-    //       x: 0,
-    //       y: 0,
-    //     },
-    //   },
-    //   component: ModalContent,
-    //   componentProps: {
-    //     imgSrc: imgComponentSrc
-    //   },
-    //   closeComponent: CloseModalButton,
-    //   closeOnClickOutside: true,
-    // });
+    openModal({
+      className: 'img-modal',
+      config: {
+        disableDragging: true,
+        default: {
+          width: '100%',
+          height: '100%',
+          x: 0,
+          y: 0,
+        },
+      },
+      component: ModalContent,
+      componentProps: {
+        imgSrc: imgComponentSrc
+      },
+      closeComponent: CloseModalButton,
+      closeOnClickOutside: true,
+    });
   };
   return (
     <Box
@@ -252,9 +252,6 @@ const TestimonialSection = ({ sectionWrapper, row, sectionSubTitle, col, col2, c
             </Box>
             <Box className="col" {...col4}>
               <video src={video3} width={"100%"} height="200px" controls></video>
-            </Box>
-            <Box className="col" {...col4}>
-              <video src={video2} width={"100%"} height="200px" controls></video>
             </Box>
             <Box className="col" {...col4}>
               <video src={video1} width={"100%"} height="200px" controls></video>
