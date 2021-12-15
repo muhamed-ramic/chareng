@@ -95,7 +95,7 @@ FeatureSection.defaultProps = {
     textAlign: 'center',
     fontSize: ['18px', '20px'],
     fontWeight: '400',
-    color: '#0f2137',
+    color: '#ffffff',
     letterSpacing: '-0.025em',
     mb: '0',
   },
@@ -140,13 +140,15 @@ FeatureSection.defaultProps = {
     color: '#0f2137',
     lineHeight: '1.5',
     mb: ['10px', '10px', '10px', '20px'],
+    background: 'linear-gradient(to right, #f6e27a 0, #f6e27a 22%, #f6e27a 45%, #f6e27a 50%, #f6e27a 55%, #f6e27a 78%, #f6e27a 100%)',
+    color: 'transparent',
     letterSpacing: '-0.020em',
   },
   // feature description default style
   featureDescription: {
     fontSize: '15px',
     lineHeight: '1.75',
-    color: '#343d48cc',
+    color: '#ffffff',
   },
 };
 

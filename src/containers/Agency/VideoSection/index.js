@@ -122,7 +122,7 @@ VideoSection.defaultProps = {
     textAlign: 'center',
     fontSize: ['20px', '24px'],
     fontWeight: '400',
-    color: '#0f2137',
+    color: '#ffffff',
     letterSpacing: '-0.025em',
     wordBreak: 'break-word',
     mb: '0',

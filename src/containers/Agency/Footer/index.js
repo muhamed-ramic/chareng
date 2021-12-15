@@ -107,9 +107,9 @@ Footer.defaultProps = {
   },
   // widget title default style
   titleStyle: {
-    color: '#343d48',
+    color: '#000000',
     fontSize: '16px',
-    fontWeight: '700',
+    fontWeight: '400',
   },
   // Default logo size
   logoStyle: {
@@ -118,7 +118,7 @@ Footer.defaultProps = {
   },
   // widget text default style
   textStyle: {
-    color: '#0f2137',
+    color: '#000000',
     fontSize: '16px',
     mb: '10px',
   },

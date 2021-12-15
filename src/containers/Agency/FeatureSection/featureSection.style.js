@@ -7,26 +7,12 @@ const FeatureSectionWrapper = styled.section`
   @media (max-width: 990px) {
     padding: 60px 0 30px 0;
   }
-  .logo-container_wrapper {
-    max-width: 600px;
-    position: relative;
-    height: 250px;
-  }
+  
   .logo-container_wrapper > img {
-    position: absolute;
-    top: -100px;
+    width: 100%;
   }
   @media (max-width: 767px) {
     padding: 40px 0 30px 0;
-    .logo-container_wrapper {
-      height: 160px;
-    }
-    .logo-container_wrapper > img{
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
   }
   .feature__block {
     position: relative;

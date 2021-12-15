@@ -283,9 +283,9 @@ const data = {
     {
       id: 1,
       icon: home,
-      title: 'Design of Steel Structures',
+      title: 'Design of Steel Structure',
       description:
-        'Structural design of steel',
+        '',
     },
     {
       id: 2,

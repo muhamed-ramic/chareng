@@ -19,7 +19,7 @@ const List = styled.ul``;
 
 const ListItem = styled.li`
   a {
-    color: ${themeGet('colors.textColor', 'rgba(52, 61, 72, 0.8)')};
+    color: ${themeGet('colors.black')};
     font-size: 14px;
     line-height: 36px;
     transition: all 0.2s ease;
