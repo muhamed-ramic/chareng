@@ -11,6 +11,7 @@ import { Icon } from 'react-icons-kit';
 import Logo3dImage from 'common/assets/image/agency/3dlogo.png';
 
 const FeatureSection = ({
+  feature,
   row,
   col,
   sectionHeader,
@@ -33,24 +34,24 @@ const FeatureSection = ({
           <Container className="horizontal-line">
           </Container>
           
-          <Text content="What We Do" {...sectionSubTitle} />
+          <Text content={feature.data.attributes.Heading ?? "What We Do"} {...sectionSubTitle} />
           
           <Heading
-            content="Featured Service that We Provide"
+            content={feature.data.attributes.Description ?? "Featured Service that We Provide"}
             {...sectionTitle}
           />
         </Box>
         <Box className="row" {...row}>
-          {data.features.map((feature, index) => (
+          {feature.data.attributes.OurFeatures.map((feature, index) => (
             <Box className="col" {...col} key={`feature-${index}`}>
               <FeatureBlock
-                icon={<Icon icon={feature.icon} />}
+                icon={<Icon icon={data.features[index].icon} />}
                 wrapperStyle={blockWrapperStyle}
                 iconStyle={iconStyle}
                 contentStyle={contentStyle}
-                title={<Heading content={feature.title} {...featureTitle} />}
+                title={<Heading content={feature.Heading} {...featureTitle} />}
                 description={
-                  <Text content={feature.description} {...featureDescription} />
+                  <Text content={feature.Description ?? ""} {...featureDescription} />
                 }
               />
             </Box>

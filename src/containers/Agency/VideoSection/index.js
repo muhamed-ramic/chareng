@@ -9,64 +9,20 @@ import NextImage from 'common/components/NextImage';
 import Container from 'common/components/UI/Container';
 import VideoSectionWrapper from './videoSection.style';
 
-import PreviewImage from 'common/assets/image/agency/preview-image.jpg';
-
-const IntroVideo = () => (
-  <iframe
-    title="ChargENG promo video"
-    width="560"
-    height="315"
-    src="https://www.youtube.com/embed/eq_ZkQgewcs"
-    frameBorder="0"
-    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-    allowFullScreen
-  />
-);
-
-const CloseModalButton = () => (
-  <Button
-    className="modalCloseBtn"
-    variant="fab"
-    onClick={() => closeModal()}
-    icon={<i className="flaticon-plus-symbol" />}
-  />
-);
-
 const VideoSection = ({
+  work,
   sectionHeader,
   sectionTitle,
   buttonStyle,
   sectionSubTitle,
 }) => {
-  // Video modal handler
-  const handleVideoModal = () => {
-    openModal({
-      config: {
-        className: 'video-modal',
-        disableDragging: true,
-        default: {
-          width: '100%',
-          height: '100%',
-          x: 0,
-          y: 0,
-        },
-      },
-      component: IntroVideo,
-      componentProps: {},
-      closeComponent: CloseModalButton,
-      closeOnClickOutside: false,
-    });
-  };
   return (
     <VideoSectionWrapper id="videoSection">
       <Container>
         <Box {...sectionHeader}>
-          <Text content="How We Work" {...sectionSubTitle} />
+          <Text content={work.data.attributes.Heading ?? "How We Work"} {...sectionSubTitle} />
           <Heading
-            content="Below is some of our work realised in various designing programs. 
-            If you would like, we could provide you more details about presented work. 
-            Our design know-how ranges from mechanical to civil engineering. 
-            If you want our team to make your ideas come true, contact us via contact information provided at the end of our web page."
+            content={work.data.attributes.Description ?? "Below is some of our work realised in various designing programs. If you would like, we could provide you more details about presented work. Our design know-how ranges from mechanical to civil engineering. If you want our team to make your ideas come true, contact us via contact information provided at the end of our web page."}
             {...sectionTitle}
           />
           <Container className="horizontal-line"/>

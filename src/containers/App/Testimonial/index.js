@@ -26,7 +26,26 @@ import Link from 'common/components/Link';
 import LinkWrapper from './link.style';
 
 
-const TestimonialSection = ({ sectionWrapper, row, sectionSubTitle, col, col2, col3, col4 }) => {
+const TestimonialSection = ({ work, sectionWrapper, row, sectionSubTitle, col, col2, col3, col4 }) => {
+  const getImgUrl = (projectPictures) => {
+    let images = [];
+    if (projectPictures.data) {
+      projectPictures.data.filter(projectPicture => {
+        let awsImgUrl = "";
+        
+        awsImgUrl = projectPicture.attributes.formats.large != null ? 
+        projectPicture.attributes.formats.large.url:
+        projectPicture.attributes.formats.small.url;
+        
+        images.push({
+          original: "https://enigmatic-shore-54899.herokuapp.com" + awsImgUrl ,
+          originalHeight: '200px',
+          thumbnailAlt: 'thumb one',
+      });
+    });
+  }
+    return images;
+  }
   const CloseModalButton = () => (
     <Button
       color={"primaryColor"}
@@ -67,189 +86,55 @@ const TestimonialSection = ({ sectionWrapper, row, sectionSubTitle, col, col2, c
     >
       <Container>
       <TestimonialSliderWrapper>
-        <Box className="row" {...row}>
-          <Box className="col" {...col}>
-              <Text content={data.projects.project1.title} {...sectionSubTitle}></Text>
+        {
+          work.data.attributes.Project.map(project => {
+            return (
+            project.isItLastProject == false ? 
+            <>
+            <Box className="row" {...row}>
+              <Box className="col" {...col}>
+                  <Text content={project.ProjectName} {...sectionSubTitle}></Text>
+                </Box>
+              <Box className="col" {...col}>
+              <ImageGallery
+                  items={getImgUrl(project.ProjectPictures)}
+                  originalClass="Testimonial-img"
+                  showPlayButton={false}
+                  useBrowserFullscreen={false}
+                  showFullscreenButton={true}
+                  showNav={true}
+                />
+              </Box>
             </Box>
-          <Box className="col" {...col}>
-            <ImageGallery
-              items={data.projects.project1.images}
-              originalClass="Testimonial-img"
-              showPlayButton={false}
-              useBrowserFullscreen={false}
-              showFullscreenButton={true}
-              showNav={true}
-            />
-          </Box>
-        </Box>
-        </TestimonialSliderWrapper>
-      <Container className="horizontal-line"/>
-      <TestimonialSliderWrapper>
-        <Box className="row" {...row}>
-          <Box className="col" {...col}>
-              <Text content={data.projects.project2.title} {...sectionSubTitle}></Text>
-            </Box>
-          <Box className="col" {...col}>
-            <ImageGallery
-              items={data.projects.project2.images}
-              originalClass="Testimonial-img"
-              showPlayButton={false}
-              useBrowserFullscreen={false}
-              showFullscreenButton={true}
-              showNav={true}
-            />
-          </Box>
-        </Box>
-        </TestimonialSliderWrapper>
-        <Container className="horizontal-line"/>
-      <TestimonialSliderWrapper>
-        <Box className="row" {...row}>
-          <Box className="col" {...col}>
-              <Text content={data.projects.project3.title} {...sectionSubTitle}></Text>
-            </Box>
-          <Box className="col" {...col}>
-            <ImageGallery
-              items={data.projects.project3.images}
-              originalClass="Testimonial-img"
-              showPlayButton={false}
-              useBrowserFullscreen={false}
-              showFullscreenButton={true}
-              showNav={true}
-            />
-          </Box>
-        </Box>
-        </TestimonialSliderWrapper>
-        <Container className="horizontal-line"/>
-      <TestimonialSliderWrapper>
-        <Box className="row" {...row}>
-          <Box className="col" {...col}>
-              <Text content={data.projects.project4.title} {...sectionSubTitle}></Text>
-            </Box>
-          <Box className="col" {...col}>
-            <ImageGallery
-              items={data.projects.project4.images}
-              originalClass="Testimonial-img"
-              showPlayButton={false}
-              useBrowserFullscreen={false}
-              showFullscreenButton={true}
-              showNav={true}
-            />
-          </Box>
-        </Box>
-        </TestimonialSliderWrapper>
-        <Container className="horizontal-line"/>
-      <TestimonialSliderWrapper>
-        <Box className="row" {...row}>
-          <Box className="col" {...col}>
-              <Text content={data.projects.project5.title} {...sectionSubTitle}></Text>
-            </Box>
-          <Box className="col" {...col}>
-            <ImageGallery
-              items={data.projects.project5.images}
-              originalClass="Testimonial-img"
-              showPlayButton={false}
-              useBrowserFullscreen={false}
-              showFullscreenButton={true}
-              showNav={true}
-            />
-          </Box>
-        </Box>
-        </TestimonialSliderWrapper>
-        <Container className="horizontal-line"/>
-      <TestimonialSliderWrapper>
-        <Box className="row" {...row}>
-          <Box className="col" {...col}>
-              <Text content={data.projects.project6.title} {...sectionSubTitle}></Text>
-            </Box>
-          <Box className="col" {...col}>
-            <ImageGallery
-              items={data.projects.project6.images}
-              originalClass="Testimonial-img"
-              showPlayButton={false}
-              useBrowserFullscreen={false}
-              showFullscreenButton={true}
-              showNav={true}
-            />
-          </Box>
-        </Box>
-        </TestimonialSliderWrapper>
-        <Container className="horizontal-line"/>
-      <TestimonialSliderWrapper>
-        <Box className="row" {...row}>
-          <Box className="col" {...col}>
-              <Text content={data.projects.project7.title} {...sectionSubTitle}></Text>
-            </Box>
-          <Box className="col" {...col}>
-            <ImageGallery
-              items={data.projects.project7.images}
-              originalClass="Testimonial-img"
-              showPlayButton={false}
-              useBrowserFullscreen={false}
-              showFullscreenButton={true}
-              showNav={true}
-            />
-          </Box>
-        </Box>
-        </TestimonialSliderWrapper>
-        <Container className="horizontal-line"/>
-        <TestimonialSliderWrapper>
+            <Container className="horizontal-line"/>
+            </>
+          : <TestimonialSliderWrapper>
         <Box className="row" {...row}>
           <Box className="col" {...col2}>
-              <Text content="Some other projects" {...sectionSubTitle}></Text>
+              <Text content={project.ProjectName} {...sectionSubTitle}></Text>
             </Box>
-            <Box className="col" {...col3}>
-              <LinkWrapper>
-                <Link href="#link" onClick={(e) => handleImgModal(Image4?.src)}>
-                  <NextImage width={"100%"} height={"200px"} loading='lazy' width={'100%'} src={Image4?.src} alt="project picture"></NextImage>
-                </Link>
-              </LinkWrapper>
+            {
+              project.ProjectPictures.data != null ?
+              project.ProjectPictures.data.map(project => {
+                let imageUrl = project.attributes.formats != null && project.attributes.formats.large != null ? 
+                project.attributes.formats.large.url:
+                project.attributes.url;
+                
+                return (
+                  <Box className="col" {...col3}>
+                    <LinkWrapper>
+                      <Link href="#link" onClick={(e) => handleImgModal("https://enigmatic-shore-54899.herokuapp.com" + imageUrl)}>
+                        <NextImage width={"100%"} height={"200px"} loading='lazy' width={'100%'} src={"https://enigmatic-shore-54899.herokuapp.com" + imageUrl} alt="project picture"></NextImage>
+                      </Link>
+                    </LinkWrapper>
+                  </Box>
+                )
+              }): null
+            }
+            
+            <Box className="col" {...col2}>
             </Box>
-            <Box className="col" {...col3}>
-              <LinkWrapper>
-                <Link href="#link" onClick={(e) => handleImgModal(Image1?.src)}>
-                  <NextImage width={"100%"}  height={"200px"} loading='lazy' width={'100%'} src={Image1?.src} alt="project picture"></NextImage>
-                </Link>
-              </LinkWrapper>
-            </Box>
-            <Box className="col" {...col3}>
-              <LinkWrapper>
-                <Link href="#link" onClick={(e) => handleImgModal(Image2?.src)}>
-                  <NextImage width={"100%"} height={"200px"} loading='lazy' width={'100%'} src={Image2?.src} alt="project picture"></NextImage>
-                </Link>
-              </LinkWrapper>
-            </Box>
-            <Box className="col" {...col3}>
-              <LinkWrapper>
-                <Link href="#link" onClick={(e) => handleImgModal(Image3?.src)}>
-                  <NextImage width={"100%"} height={"200px"} loading='lazy' width={'100%'} src={Image3?.src} alt="project picture"></NextImage>
-                </Link>
-              </LinkWrapper>
-            </Box>
-            <Box className="col" {...col3}>
-              <LinkWrapper>
-                <Link href="#link" onClick={(e) => handleImgModal(Image5?.src)}>
-                  <NextImage width={"100%"} height={"200px"} loading='lazy' width={'100%'} src={Image5?.src} alt="project picture"></NextImage>
-                </Link>
-              </LinkWrapper>
-            </Box>
-            <Box className="col" {...col3}>
-              <LinkWrapper>
-                <Link href="#link" onClick={(e) => handleImgModal(Image6?.src)}>
-                  <NextImage width={"100%"} height={"200px"} loading='lazy' width={'100%'} src={Image6?.src} alt="project picture"></NextImage>
-                </Link>
-              </LinkWrapper>
-            </Box>
-            <Box className="col" {...col3}>
-              <LinkWrapper>
-                <Link href="#link" onClick={(e) => handleImgModal(Image7?.src)}>
-                  <NextImage width={"100%"} height={"200px"} loading='lazy' width={'100%'} src={Image7?.src} alt="project picture"></NextImage>
-                </Link>
-              </LinkWrapper>
-            </Box>
-            <Box className="col" {...col3}>
-            </Box>
-            <Box className="col" {...col3}>
-            </Box>
+            
             <Box className="col" {...col4}>
               <video src={video3} width={"100%"} height="200px" controls></video>
             </Box>
@@ -261,6 +146,10 @@ const TestimonialSection = ({ sectionWrapper, row, sectionSubTitle, col, col2, c
           <Box className="col" {...col2}>
               <Text content="THANK YOU FOR VISITING US" {...sectionSubTitle}></Text>
           </Box>
+        </TestimonialSliderWrapper>
+          ); 
+          })
+        }
         </TestimonialSliderWrapper>
       </Container>
     </Box>

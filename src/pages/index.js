@@ -8,19 +8,13 @@ import { GlobalStyle, AgencyWrapper } from 'containers/Agency/agency.style';
 import Navbar from 'containers/Agency/Navbar';
 import BannerSection from 'containers/Agency/BannerSection';
 import FeatureSection from 'containers/Agency/FeatureSection';
-import AboutUsSection from 'containers/Agency/AboutUsSection';
-import WorkHistory from 'containers/Agency/WorkHistory';
-import BlogSection from 'containers/Agency/BlogSection';
 import TestimonialSection from 'containers/App/Testimonial';
-import TeamSection from 'containers/Agency/TeamSection';
 import VideoSection from 'containers/Agency/VideoSection';
-import NewsletterSection from 'containers/Agency/NewsletterSection';
-import QualitySection from 'containers/Agency/QualitySection';
 import Footer from 'containers/Agency/Footer';
 import { DrawerProvider } from 'common/contexts/DrawerContext';
-import FaqSection from 'containers/Agency/FaqSection';
+import Axios from "axios";
 
-const Main = () => {
+const Main = ({ data }) => {
   return (
     <ThemeProvider theme={agencyTheme}>
       <Fragment>
@@ -45,10 +39,10 @@ const Main = () => {
               <Navbar />
             </DrawerProvider>
           </Sticky>
-          <BannerSection />
-          <FeatureSection />
-          <VideoSection />
-          <TestimonialSection />
+          <BannerSection heading={data.banner} />
+          <FeatureSection feature={data.feature} />
+          <VideoSection work={data.work} />
+          <TestimonialSection work={data.work} />
           <Footer />
 
           {/* <AboutUsSection /> */}
@@ -67,3 +61,31 @@ const Main = () => {
   );
 };
 export default Main;
+
+export async function getStaticProps() {
+  const promises = [
+    Axios.get("https://enigmatic-shore-54899.herokuapp.com/api/banner"),
+    Axios.get("https://enigmatic-shore-54899.herokuapp.com/api/welcome"),
+    Axios.get("https://enigmatic-shore-54899.herokuapp.com/api/feature?populate[OurFeatures][populate]=*"),
+    Axios.get("https://enigmatic-shore-54899.herokuapp.com/api/work?populate[Project][populate]=*"),
+    Axios.get("https://enigmatic-shore-54899.herokuapp.com/api/video?populate=*"),
+    Axios.get("https://enigmatic-shore-54899.herokuapp.com/api/good-bye"),
+    Axios.get("https://enigmatic-shore-54899.herokuapp.com/api/footer?populate[Links][populate]=*")
+  ]
+  const [bannerResponse, welcomeResponse, featureResponse, workResponse,
+        videoResponse, goodByeResponse, footerResponse] = await Promise.all(promises);
+  let data = {
+    banner: bannerResponse.data,
+    welcome: welcomeResponse.data,
+    feature: featureResponse.data,
+    work: workResponse.data,
+    video: videoResponse.data,
+    goodBye: goodByeResponse.data,
+    footer: footerResponse.data
+  };
+  return {
+    props: {
+      data: data
+    }
+  }
+}

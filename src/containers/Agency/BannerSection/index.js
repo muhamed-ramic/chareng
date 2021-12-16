@@ -10,6 +10,7 @@ import Particles from '../../Agency/Particle';
 import BannerWrapper, { DiscountLabel } from './bannerSection.style';
 
 const BannerSection = ({
+  heading,
   row,
   col,
   title,
@@ -39,13 +40,13 @@ const BannerSection = ({
             <FeatureBlock
               title={
                 <Heading
-                  content="ChargENG Inc"
+                  content={heading.data.attributes.Heading ?? "ChargENG Inc"}
                   {...title}
                 />
               }
               description={
                 <Text
-                  content="We are young, vibrant and enthusiastic design engineering team who strives to reach exactly what our customers want"
+                  content={heading.data.attributes.Description ?? "We are young, vibrant and enthusiastic design engineering team who strives to reach exactly what our customers want"}
                   {...description}
                 />
               }
