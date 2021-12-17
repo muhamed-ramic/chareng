@@ -4,6 +4,7 @@ import { openModal, closeModal } from '@redq/reuse-modal';
 import NavbarWrapper from 'common/components/Navbar';
 import Drawer from 'common/components/Drawer';
 import Button from 'common/components/Button';
+import Link from 'common/components/Link';
 import Logo from 'common/components/UIElements/Logo';
 import HamburgMenu from 'common/components/HamburgMenu';
 import ScrollSpyMenu from 'common/components/ScrollSpyMenu';
@@ -38,7 +39,7 @@ const CloseModalButtonAlt = () => (
   />
 );
 
-const Navbar = ({ navbarStyle, logoStyle, menuWrapper, row }) => {
+const Navbar = ({ navbarStyle, logoStyle, menuWrapper,langWrapper, row, language, setLanguage }) => {
   const { state, dispatch } = useContext(DrawerContext);
 
   // Search modal handler
@@ -107,10 +108,36 @@ const Navbar = ({ navbarStyle, logoStyle, menuWrapper, row }) => {
         <Box {...menuWrapper}>
             <ScrollSpyMenu
               className="main_menu"
-              menuItems={data.menuItems}
+              menuItems={data.menuItems[language]}
               offset={-70}
             />
-            
+            <Box className="lang_wrapper" {...langWrapper}>
+              {
+                language == 'en' ?
+                 <>
+                  <Link onClick={() => setLanguage('bs-BA')} color={"#000"} href="#"><span>BS | </span></Link>
+                  <Link onClick={() => setLanguage('fi')} color={"#000"} href="#"><span>FI </span></Link>
+                 </>
+                : null
+              }
+              {
+                language == 'bs-BA' ?
+                 <>
+                  <Link onClick={() => setLanguage('en')} color={"#000"} href="#"><span>EN | </span></Link>
+                  <Link onClick={() => setLanguage('fi')} color={"#000"} href="#"><span>FI </span></Link>
+                 </>
+                : null
+              }
+              {
+                language == 'fi' ?
+                 <>
+                  <Link onClick={() => setLanguage('en')} color={"#000"} href="#"><span>EN | </span></Link>
+                  <Link onClick={() => setLanguage('bs-BA')} color={"#000"} href="#"><span>BS </span></Link>
+                 </>
+                : null
+              }
+             
+           </Box>
             <Drawer
               width="420px"
               placement="right"
@@ -152,6 +179,9 @@ Navbar.defaultProps = {
   menuWrapper: {
     flexBox: true,
     alignItems: 'center',
+  },
+  langWrapper: {
+    ml: '25px',
   },
   row: {
     flexBox: true,

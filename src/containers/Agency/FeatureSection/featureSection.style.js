@@ -9,6 +9,7 @@ const FeatureSectionWrapper = styled.section`
   }
   
   .logo-container_wrapper > img {
+    transform: scale(0.75);
     width: 100%;
   }
   @media (max-width: 767px) {

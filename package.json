@@ -11,7 +11,8 @@
     "serve": "npm run build && firebase emulators:start --only functions,hosting",
     "shell": "npm run build && firebase functions:shell",
     "deploy": "firebase deploy --only functions,hosting",
-    "logs": "firebase functions:log"
+    "logs": "firebase functions:log",
+    "postbuild": "next-on-netlify"
   },
   "dependencies": {
     "@glidejs/glide": "^3.4.1",
@@ -25,6 +26,7 @@
     "next": "^11.1.2",
     "next-compose-plugins": "^2.2.1",
     "next-fonts": "1.5.1",
+    "next-on-netlify": "^3.0.1",
     "next-optimized-images": "^2.6.2",
     "next-videos": "1.4.0",
     "polished": "^4.0.3",
@@ -50,6 +52,7 @@
     "react-parallax": "^3.3.0",
     "react-parallax-component": "^1.0.6",
     "react-particles-js": "^3.4.1",
+    "react-query": "^3.34.5",
     "react-responsive": "^9.0.0-beta.4",
     "react-reveal": "^1.2.2",
     "react-rnd": "^10.2.3",
@@ -62,6 +65,7 @@
     "styled-components": "^5.2.1",
     "styled-system": "5.1.5",
     "swiper": "^7.0.6",
+    "swr": "^1.1.2-beta.0",
     "tsparticles": "^1.35.2"
   },
   "devDependencies": {

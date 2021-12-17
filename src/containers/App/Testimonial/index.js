@@ -33,12 +33,10 @@ const TestimonialSection = ({ work, sectionWrapper, row, sectionSubTitle, col, c
       projectPictures.data.filter(projectPicture => {
         let awsImgUrl = "";
         
-        awsImgUrl = projectPicture.attributes.formats.large != null ? 
-        projectPicture.attributes.formats.large.url:
-        projectPicture.attributes.formats.small.url;
+        awsImgUrl = projectPicture.attributes.name;
         
         images.push({
-          original: "https://enigmatic-shore-54899.herokuapp.com" + awsImgUrl ,
+          original: awsImgUrl ,
           originalHeight: '200px',
           thumbnailAlt: 'thumb one',
       });
@@ -113,24 +111,22 @@ const TestimonialSection = ({ work, sectionWrapper, row, sectionSubTitle, col, c
           <Box className="col" {...col2}>
               <Text content={project.ProjectName} {...sectionSubTitle}></Text>
             </Box>
-            {
+            {/* {
               project.ProjectPictures.data != null ?
               project.ProjectPictures.data.map(project => {
-                let imageUrl = project.attributes.formats != null && project.attributes.formats.large != null ? 
-                project.attributes.formats.large.url:
-                project.attributes.url;
+                let imageUrl = project.attributes.name;
                 
                 return (
                   <Box className="col" {...col3}>
                     <LinkWrapper>
-                      <Link href="#link" onClick={(e) => handleImgModal("https://enigmatic-shore-54899.herokuapp.com" + imageUrl)}>
-                        <NextImage width={"100%"} height={"200px"} loading='lazy' width={'100%'} src={"https://enigmatic-shore-54899.herokuapp.com" + imageUrl} alt="project picture"></NextImage>
+                      <Link href="#link" onClick={(e) => handleImgModal(imageUrl)}>
+                        <NextImage width={"100%"} height={"200px"} loading='lazy' width={'100%'} src={imageUrl} alt="project picture"></NextImage>
                       </Link>
                     </LinkWrapper>
                   </Box>
                 )
               }): null
-            }
+            } */}
             
             <Box className="col" {...col2}>
             </Box>

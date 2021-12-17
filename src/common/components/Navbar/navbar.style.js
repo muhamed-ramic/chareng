@@ -20,6 +20,13 @@ const NavbarStyle = styled.nav`
   min-height: 56px;
   padding: 10px 16px;
 
+  .lang_wrapper > a:nth-child(1) {
+    margin-right: 5px;
+  }
+  .lang_wrapper > a:hover{
+    color: yellow;
+  }
+
   /* Style system supported prop */
   ${display}
   ${alignItems}

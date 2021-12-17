@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import Head from 'next/head';
 import Sticky from 'react-stickynode';
 import { ThemeProvider } from 'styled-components';
@@ -14,7 +14,38 @@ import Footer from 'containers/Agency/Footer';
 import { DrawerProvider } from 'common/contexts/DrawerContext';
 import Axios from "axios";
 
-const Main = ({ data }) => {
+
+const Main = () => {
+const [data, setData] = useState(null);
+const [lang, setLang] = useState('en');
+
+useEffect(() => {
+  const fetchData = async() => {
+    const promises = [
+      Axios.get(`https://enigmatic-shore-54899.herokuapp.com/api/banner`),
+      Axios.get(`https://enigmatic-shore-54899.herokuapp.com/api/welcome`),
+      Axios.get("https://enigmatic-shore-54899.herokuapp.com/api/feature?populate[OurFeatures][populate]=*"),
+      Axios.get("https://enigmatic-shore-54899.herokuapp.com/api/work?populate[Project][populate]=*"),
+      Axios.get("https://enigmatic-shore-54899.herokuapp.com/api/video?populate=*"),
+      Axios.get("https://enigmatic-shore-54899.herokuapp.com/api/good-bye"),
+      Axios.get("https://enigmatic-shore-54899.herokuapp.com/api/footer?populate[Links][populate]=*")
+    ];
+    const [bannerResponse, welcomeResponse, featureResponse, workResponse,
+          videoResponse, goodByeResponse, footerResponse] = await Promise.all(promises);
+    let gotData = {
+      banner: bannerResponse.data,
+      welcome: welcomeResponse.data,
+      feature: featureResponse.data,
+      work: workResponse.data,
+      video: videoResponse.data,
+      goodBye: goodByeResponse.data,
+      footer: footerResponse.data
+    };
+    setData({...gotData});
+  }
+  fetchData();
+}, [lang]);
+
   return (
     <ThemeProvider theme={agencyTheme}>
       <Fragment>
@@ -36,13 +67,19 @@ const Main = ({ data }) => {
         <AgencyWrapper>
           <Sticky top={0} innerZ={9999} activeClass="sticky-nav-active">
             <DrawerProvider>
-              <Navbar />
+              <Navbar language={lang} setLanguage={setLang} />
             </DrawerProvider>
           </Sticky>
-          <BannerSection heading={data.banner} />
-          <FeatureSection feature={data.feature} />
-          <VideoSection work={data.work} />
-          <TestimonialSection work={data.work} />
+          {
+            data != null ?
+            <>
+              <BannerSection heading={data.banner} />
+              <FeatureSection feature={data.feature} />
+              <VideoSection work={data.work} />
+              <TestimonialSection work={data.work} />
+            </>
+            : null
+          }
           <Footer />
 
           {/* <AboutUsSection /> */}
@@ -62,30 +99,30 @@ const Main = ({ data }) => {
 };
 export default Main;
 
-export async function getStaticProps() {
-  const promises = [
-    Axios.get("https://enigmatic-shore-54899.herokuapp.com/api/banner"),
-    Axios.get("https://enigmatic-shore-54899.herokuapp.com/api/welcome"),
-    Axios.get("https://enigmatic-shore-54899.herokuapp.com/api/feature?populate[OurFeatures][populate]=*"),
-    Axios.get("https://enigmatic-shore-54899.herokuapp.com/api/work?populate[Project][populate]=*"),
-    Axios.get("https://enigmatic-shore-54899.herokuapp.com/api/video?populate=*"),
-    Axios.get("https://enigmatic-shore-54899.herokuapp.com/api/good-bye"),
-    Axios.get("https://enigmatic-shore-54899.herokuapp.com/api/footer?populate[Links][populate]=*")
-  ]
-  const [bannerResponse, welcomeResponse, featureResponse, workResponse,
-        videoResponse, goodByeResponse, footerResponse] = await Promise.all(promises);
-  let data = {
-    banner: bannerResponse.data,
-    welcome: welcomeResponse.data,
-    feature: featureResponse.data,
-    work: workResponse.data,
-    video: videoResponse.data,
-    goodBye: goodByeResponse.data,
-    footer: footerResponse.data
-  };
-  return {
-    props: {
-      data: data
-    }
-  }
-}
+// export async function getServerSideProps() {
+//   const promises = [
+//     Axios.get("https://enigmatic-shore-54899.herokuapp.com/api/banner"),
+//     Axios.get("https://enigmatic-shore-54899.herokuapp.com/api/welcome"),
+//     Axios.get("https://enigmatic-shore-54899.herokuapp.com/api/feature?populate[OurFeatures][populate]=*"),
+//     Axios.get("https://enigmatic-shore-54899.herokuapp.com/api/work?populate[Project][populate]=*"),
+//     Axios.get("https://enigmatic-shore-54899.herokuapp.com/api/video?populate=*"),
+//     Axios.get("https://enigmatic-shore-54899.herokuapp.com/api/good-bye"),
+//     Axios.get("https://enigmatic-shore-54899.herokuapp.com/api/footer?populate[Links][populate]=*")
+//   ]
+//   const [bannerResponse, welcomeResponse, featureResponse, workResponse,
+//         videoResponse, goodByeResponse, footerResponse] = await Promise.all(promises);
+//   let data = {
+//     banner: bannerResponse.data,
+//     welcome: welcomeResponse.data,
+//     feature: featureResponse.data,
+//     work: workResponse.data,
+//     video: videoResponse.data,
+//     goodBye: goodByeResponse.data,
+//     footer: footerResponse.data
+//   };
+//   return {
+//     props: {
+//       data: data
+//     },
+//   }
+// }

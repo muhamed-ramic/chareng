@@ -50,19 +50,44 @@ import Image31 from 'common/assets/image/agency/projekt7/2021-12-09_222822.jpg';
 
 
 const data = {
-  menuItems: [
+  menuItems: 
     {
-      label: 'Home',
-      path: '#bannerSection',
-    },
-    {
-      label: 'Feature',
-      path: '#featureSection',
-    },
-    {
-      label: 'Work',
-      path: '#videoSection',
-    },
+      "en": [{
+        label: 'Home',
+        path: '#bannerSection',
+      },
+      {
+        label: 'Feature',
+        path: '#featureSection',
+      },
+      {
+        label: 'Work',
+        path: '#videoSection',
+      }],
+      "bs-BA": [{
+        label: 'Početna',
+        path: '#bannerSection',
+      },
+      {
+        label: 'Karakteristike',
+        path: '#featureSection',
+      },
+      {
+        label: 'Posao',
+        path: '#videoSection',
+      }],
+      "fi": [{
+        label: 'Etusivu',
+        path: '#bannerSection',
+      },
+      {
+        label: 'Piirre',
+        path: '#featureSection',
+      },
+      {
+        label: 'Työ',
+        path: '#videoSection',
+      }],
     // {
     //   label: 'Portfolio',
     //   path: '#blogSection',
@@ -78,7 +103,7 @@ const data = {
     //   path: '#faqSection',
     //   offset: '67',
     // },
-  ],
+},
   projects: {
     project1: {
       title: 'Project I',
