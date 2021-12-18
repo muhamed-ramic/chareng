@@ -22,24 +22,22 @@ const [lang, setLang] = useState('en');
 useEffect(() => {
   const fetchData = async() => {
     const promises = [
-      Axios.get(`https://enigmatic-shore-54899.herokuapp.com/api/banner`),
-      Axios.get(`https://enigmatic-shore-54899.herokuapp.com/api/welcome`),
-      Axios.get("https://enigmatic-shore-54899.herokuapp.com/api/feature?populate[OurFeatures][populate]=*"),
-      Axios.get("https://enigmatic-shore-54899.herokuapp.com/api/work?populate[Project][populate]=*"),
-      Axios.get("https://enigmatic-shore-54899.herokuapp.com/api/video?populate=*"),
-      Axios.get("https://enigmatic-shore-54899.herokuapp.com/api/good-bye"),
-      Axios.get("https://enigmatic-shore-54899.herokuapp.com/api/footer?populate[Links][populate]=*")
+      Axios.get(`https://enigmatic-shore-54899.herokuapp.com/api/banner?locale=${lang}`),
+      Axios.get(`https://enigmatic-shore-54899.herokuapp.com/api/welcome?locale=${lang}`),
+      Axios.get(`https://enigmatic-shore-54899.herokuapp.com/api/feature?populate[OurFeatures][populate]=*&locale=${lang}`),
+      Axios.get(`https://enigmatic-shore-54899.herokuapp.com/api/work?populate[Project][populate]=*&locale=${lang}`),
+      Axios.get(`https://enigmatic-shore-54899.herokuapp.com/api/video?populate=*&locale=${lang}`),
+      Axios.get(`https://enigmatic-shore-54899.herokuapp.com/api/good-bye?locale=${lang}`),
     ];
     const [bannerResponse, welcomeResponse, featureResponse, workResponse,
-          videoResponse, goodByeResponse, footerResponse] = await Promise.all(promises);
+          videoResponse, goodByeResponse] = await Promise.all(promises);
     let gotData = {
       banner: bannerResponse.data,
       welcome: welcomeResponse.data,
       feature: featureResponse.data,
       work: workResponse.data,
       video: videoResponse.data,
-      goodBye: goodByeResponse.data,
-      footer: footerResponse.data
+      goodBye: goodByeResponse.data
     };
     setData({...gotData});
   }
@@ -74,7 +72,7 @@ useEffect(() => {
             data != null ?
             <>
               <BannerSection heading={data.banner} />
-              <FeatureSection feature={data.feature} />
+              <FeatureSection welcome={data.welcome} feature={data.feature} />
               <VideoSection work={data.work} />
               <TestimonialSection work={data.work} />
             </>

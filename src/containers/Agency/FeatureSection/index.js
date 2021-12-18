@@ -12,6 +12,7 @@ import Logo3dImage from 'common/assets/image/agency/3dlogo.png';
 
 const FeatureSection = ({
   feature,
+  welcome,
   row,
   col,
   sectionHeader,
@@ -27,7 +28,7 @@ const FeatureSection = ({
     <FeatureSectionWrapper id="featureSection">
       <Container>
         <Box {...sectionHeader}>
-          <Text content="Welcome To" {...sectionSubTitle} />
+          <Text content={welcome.data.attributes.WelcomeText ?? "Welcome To"} {...sectionSubTitle} />
           <Container className="logo-container_wrapper">
              <img src={Logo3dImage?.src} alt="Logo 3d" />
           </Container>

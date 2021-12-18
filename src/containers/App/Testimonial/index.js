@@ -7,16 +7,8 @@ import 'react-image-gallery/styles/css/image-gallery.css';
 import data from 'common/data/Agency/';
 import Text from 'common/components/Text';
 import TestimonialSliderWrapper from './testimonial.style';
-import Image1 from 'common/assets/image/agency/projekt8/20210908_111544.jpg';
-import Image2 from 'common/assets/image/agency/projekt8/as.jpg';
-import Image3 from 'common/assets/image/agency/projekt8/grtalica.jpg';
-import Image4 from 'common/assets/image/agency/projekt8/KOS.jpg';
-import Image5 from 'common/assets/image/agency/projekt8/se.jpg';
-import Image6 from 'common/assets/image/agency/projekt8/p1.gif';
-import Image7 from 'common/assets/image/agency/projekt8/p2.gif';
 
 import video1 from 'common/assets/image/agency/projekt8/end1x.mp4';
-import video2 from 'common/assets/image/agency/projekt8/grtalica.mp4';
 import video3 from 'common/assets/image/agency/projekt8/Konstrukcija1.mp4';
 
 import Button from 'common/components/Button';
@@ -33,7 +25,8 @@ const TestimonialSection = ({ work, sectionWrapper, row, sectionSubTitle, col, c
       projectPictures.data.filter(projectPicture => {
         let awsImgUrl = "";
         
-        awsImgUrl = projectPicture.attributes.name;
+        awsImgUrl = projectPicture.attributes.formats.large ?? projectPicture.attributes.formats.small ;
+        awsImgUrl = awsImgUrl.url;
         
         images.push({
           original: awsImgUrl ,

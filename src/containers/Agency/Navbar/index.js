@@ -16,6 +16,7 @@ import Box from 'common/components/Box';
 import LogoImage from 'common/assets/image/agency/logo.png';
 
 import { DrawerContext } from 'common/contexts/DrawerContext';
+import { FlagIcon } from "react-flag-kit";
 
 import data from 'common/data/Agency/';
 
@@ -115,24 +116,45 @@ const Navbar = ({ navbarStyle, logoStyle, menuWrapper,langWrapper, row, language
               {
                 language == 'en' ?
                  <>
-                  <Link onClick={() => setLanguage('bs-BA')} color={"#000"} href="#"><span>BS | </span></Link>
-                  <Link onClick={() => setLanguage('fi')} color={"#000"} href="#"><span>FI </span></Link>
+                 <Link className="active" disabled={true} color={"#000"} href="#lang">
+                    <FlagIcon color='#000' code="GB" size={28} />
+                  </Link>
+                  <Link onClick={() => setLanguage('bs-BA')} color={"#000"} href="#lang">
+                    <FlagIcon code="BA" size={28} />
+                  </Link>
+                  <Link onClick={() => setLanguage('fi')} color={"#000"} href="#lang">
+                    <FlagIcon code="FI" size={28} />
+                  </Link>
                  </>
                 : null
               }
               {
                 language == 'bs-BA' ?
                  <>
-                  <Link onClick={() => setLanguage('en')} color={"#000"} href="#"><span>EN | </span></Link>
-                  <Link onClick={() => setLanguage('fi')} color={"#000"} href="#"><span>FI </span></Link>
+                 <Link className="active" disabled={true} color={"#000"} href="#lang">
+                    <FlagIcon color='#000' code="BA" size={28} />
+                  </Link>
+                  <Link onClick={() => setLanguage('en')} color={"#000"} href="#lang">
+                    <FlagIcon code="GB" size={28} />
+                  </Link>
+                  <Link onClick={() => setLanguage('fi')} color={"#000"} href="#lang">
+                    <FlagIcon code="FI" size={28} />
+                  </Link>
                  </>
                 : null
               }
               {
                 language == 'fi' ?
                  <>
-                  <Link onClick={() => setLanguage('en')} color={"#000"} href="#"><span>EN | </span></Link>
-                  <Link onClick={() => setLanguage('bs-BA')} color={"#000"} href="#"><span>BS </span></Link>
+                 <Link className="active" disabled={true} color={"#000"} href="#lang">
+                    <FlagIcon color='#000' code="FI" size={28} />
+                  </Link>
+                  <Link onClick={() => setLanguage('en')} color={"#000"} href="#lang">
+                    <FlagIcon code="GB" size={28} />
+                  </Link>
+                  <Link onClick={() => setLanguage('bs-BA')} color={"#000"} href="#lang">
+                    <FlagIcon code="BA" size={28} />
+                  </Link>
                  </>
                 : null
               }
@@ -147,7 +169,7 @@ const Navbar = ({ navbarStyle, logoStyle, menuWrapper,langWrapper, row, language
             >
               <ScrollSpyMenu
                 className="mobile_menu"
-                menuItems={data.menuItems}
+                menuItems={data.menuItems[language]}
                 drawerClose={true}
                 offset={-100}
               />

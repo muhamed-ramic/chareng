@@ -20,11 +20,17 @@ const NavbarStyle = styled.nav`
   min-height: 56px;
   padding: 10px 16px;
 
+  .lang_wrapper {
+    display: flex;
+  }
   .lang_wrapper > a:nth-child(1) {
     margin-right: 5px;
   }
-  .lang_wrapper > a:hover{
-    color: yellow;
+  .lang_wrapper > a:nth-child(2) {
+    margin-right: 5px;
+  }
+  .lang_wrapper > a.active {
+    border-bottom: 3px solid #FFD700;
   }
 
   /* Style system supported prop */
