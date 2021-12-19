@@ -69,11 +69,11 @@ const data = {
         path: '#bannerSection',
       },
       {
-        label: 'Karakteristike',
+        label: 'Naše usluge',
         path: '#featureSection',
       },
       {
-        label: 'Posao',
+        label: 'Naši radovi',
         path: '#videoSection',
       }],
       "fi": [{
@@ -81,11 +81,11 @@ const data = {
         path: '#bannerSection',
       },
       {
-        label: 'Piirre',
+        label: 'Palvelumme',
         path: '#featureSection',
       },
       {
-        label: 'Työ',
+        label: 'Työmme',
         path: '#videoSection',
       }],
     // {

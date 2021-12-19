@@ -74,10 +74,12 @@ useEffect(() => {
               <BannerSection heading={data.banner} />
               <FeatureSection welcome={data.welcome} feature={data.feature} />
               <VideoSection work={data.work} />
-              <TestimonialSection work={data.work} />
+              <TestimonialSection language={lang} work={data.work} />
             </>
             : <>
+            <div style={{display: "flex", justifyContent: "center"}}>
               <Loader width="42px" height="42px" position="relative" left = "50%" top = "50%"/>
+            </div>
             </>
           }
           <Footer />

@@ -13,6 +13,9 @@ import picture2 from 'common/assets/image/agency/projekt8/as2.jpeg';
 import picture3 from 'common/assets/image/agency/projekt8/p1.gif';
 import picture4 from 'common/assets/image/agency/projekt8/p2.gif';
 import picture5 from 'common/assets/image/agency/projekt8/se.jpg';
+import picture6 from 'common/assets/image/agency/projekt8/kos_plavi.jpg';
+import picture7 from 'common/assets/image/agency/projekt8/20210908_111544.jpg';
+import picture8 from 'common/assets/image/agency/projekt8/grtalica.jpg';
 
 import video1 from 'common/assets/image/agency/projekt8/end1x.mp4';
 
@@ -23,7 +26,13 @@ import Link from 'common/components/Link';
 import LinkWrapper from './link.style';
 
 
-const TestimonialSection = ({ work, sectionWrapper, row, sectionSubTitle, col, col2, col3, col4 }) => {
+const TestimonialSection = ({ language,work, sectionWrapper, row, sectionSubTitle, col, col2, col3, col4 }) => {
+  const goodByeMessage = {
+    "en": "THANK YOU FOR VISTING US",
+    "bs-BA": "Hvala na posjeti",
+    "fi": "Kiitos vierailustasi"
+  };
+  
   const getImgUrl = (projectPictures) => {
     let images = [];
     if (projectPictures.data) {
@@ -130,7 +139,7 @@ const TestimonialSection = ({ work, sectionWrapper, row, sectionSubTitle, col, c
                   showNav={true}
                 />
             </Box>
-            {
+            {/* {
               project.ProjectPictures.data != null ?
               project.ProjectPictures.data.map(projectPicture => {
                 let awsImgUrl = projectPicture.attributes.formats.large ?? projectPicture.attributes.formats.small ;
@@ -146,7 +155,28 @@ const TestimonialSection = ({ work, sectionWrapper, row, sectionSubTitle, col, c
                   </Box>
                 )
               }): null
-            }
+            } */}
+            <Box className="col" {...col4}>
+            <ImageGallery
+                  items={[
+                    {
+                      original: picture6?.src,
+                      originalHeight: '200px',
+                      thumbnailAlt: 'thumbnail project image',
+                    },
+                    {
+                      original: picture7?.src,
+                      originalHeight: '200px',
+                      thumbnailAlt: 'thumbnail project image',
+                    },
+                  ]}
+                  originalClass="Testimonial-img"
+                  showPlayButton={false}
+                  useBrowserFullscreen={false}
+                  showFullscreenButton={true}
+                  showNav={true}
+                />
+            </Box>
             <Box className="col" {...col4}>
             <ImageGallery
                   items={[
@@ -170,22 +200,28 @@ const TestimonialSection = ({ work, sectionWrapper, row, sectionSubTitle, col, c
             </Box>
             <Box className="col" {...col4}>
               <LinkWrapper>
+                <Link href="#link" onClick={(e) => handleImgModal(picture8?.src)}>
+                  <NextImage width={"100%"} height={"200px"} loading='lazy' width={'100%'} src={picture8?.src} alt="project picture"></NextImage>
+                </Link>
+              </LinkWrapper>
+            </Box>
+            <Box className="col" {...col4}>
+              <LinkWrapper>
                 <Link href="#link" onClick={(e) => handleImgModal(picture5?.src)}>
                   <NextImage width={"100%"} height={"200px"} loading='lazy' width={'100%'} src={picture5?.src} alt="project picture"></NextImage>
                 </Link>
               </LinkWrapper>
             </Box>
-            
-            <Box className="col" {...col2}>
-            </Box>
-            
+
             <Box className="col" {...col4}>
               <video src={video1} width={"100%"} height="200px" controls></video>
             </Box>
           </Box>
         <Container className="horizontal-line"/>
           <Box className="col" {...col2}>
-              <Text content="THANK YOU FOR VISITING US" {...sectionSubTitle}></Text>
+              <Text content={
+                goodByeMessage[language]
+              } {...sectionSubTitle}></Text>
           </Box>
         </TestimonialSliderWrapper>
           ); 
