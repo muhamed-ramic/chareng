@@ -8,8 +8,13 @@ import data from 'common/data/Agency/';
 import Text from 'common/components/Text';
 import TestimonialSliderWrapper from './testimonial.style';
 
+import picture1 from 'common/assets/image/agency/projekt8/as.jpg';
+import picture2 from 'common/assets/image/agency/projekt8/as2.jpeg';
+import picture3 from 'common/assets/image/agency/projekt8/p1.gif';
+import picture4 from 'common/assets/image/agency/projekt8/p2.gif';
+import picture5 from 'common/assets/image/agency/projekt8/se.jpg';
+
 import video1 from 'common/assets/image/agency/projekt8/end1x.mp4';
-import video3 from 'common/assets/image/agency/projekt8/Konstrukcija1.mp4';
 
 import Button from 'common/components/Button';
 import { openModal, closeModal } from '@redq/reuse-modal';
@@ -31,7 +36,7 @@ const TestimonialSection = ({ work, sectionWrapper, row, sectionSubTitle, col, c
         images.push({
           original: awsImgUrl ,
           originalHeight: '200px',
-          thumbnailAlt: 'thumb one',
+          thumbnailAlt: 'thumbnailproject image',
       });
     });
   }
@@ -104,29 +109,76 @@ const TestimonialSection = ({ work, sectionWrapper, row, sectionSubTitle, col, c
           <Box className="col" {...col2}>
               <Text content={project.ProjectName} {...sectionSubTitle}></Text>
             </Box>
-            {/* {
+            <Box className="col" {...col4}>
+            <ImageGallery
+                  items={[
+                    {
+                      original: picture1?.src,
+                      originalHeight: '200px',
+                      thumbnailAlt: 'thumbnail project image',
+                    },
+                    {
+                      original: picture2?.src,
+                      originalHeight: '200px',
+                      thumbnailAlt: 'thumbnail project image',
+                    },
+                  ]}
+                  originalClass="Testimonial-img"
+                  showPlayButton={false}
+                  useBrowserFullscreen={false}
+                  showFullscreenButton={true}
+                  showNav={true}
+                />
+            </Box>
+            {
               project.ProjectPictures.data != null ?
-              project.ProjectPictures.data.map(project => {
-                let imageUrl = project.attributes.name;
+              project.ProjectPictures.data.map(projectPicture => {
+                let awsImgUrl = projectPicture.attributes.formats.large ?? projectPicture.attributes.formats.small ;
+                awsImgUrl = awsImgUrl.url;
                 
                 return (
-                  <Box className="col" {...col3}>
+                  <Box className="col" {...col4}>
                     <LinkWrapper>
-                      <Link href="#link" onClick={(e) => handleImgModal(imageUrl)}>
-                        <NextImage width={"100%"} height={"200px"} loading='lazy' width={'100%'} src={imageUrl} alt="project picture"></NextImage>
+                      <Link href="#link" onClick={(e) => handleImgModal(awsImgUrl)}>
+                        <NextImage width={"100%"} height={"200px"} loading='lazy' width={'100%'} src={awsImgUrl} alt="project picture"></NextImage>
                       </Link>
                     </LinkWrapper>
                   </Box>
                 )
               }): null
-            } */}
+            }
+            <Box className="col" {...col4}>
+            <ImageGallery
+                  items={[
+                    {
+                      original: picture3?.src,
+                      originalHeight: '200px',
+                      thumbnailAlt: 'thumbnail project image',
+                    },
+                    {
+                      original: picture4?.src,
+                      originalHeight: '200px',
+                      thumbnailAlt: 'thumbnail project image',
+                    },
+                  ]}
+                  originalClass="Testimonial-img"
+                  showPlayButton={false}
+                  useBrowserFullscreen={false}
+                  showFullscreenButton={true}
+                  showNav={true}
+                />
+            </Box>
+            <Box className="col" {...col4}>
+              <LinkWrapper>
+                <Link href="#link" onClick={(e) => handleImgModal(picture5?.src)}>
+                  <NextImage width={"100%"} height={"200px"} loading='lazy' width={'100%'} src={picture5?.src} alt="project picture"></NextImage>
+                </Link>
+              </LinkWrapper>
+            </Box>
             
             <Box className="col" {...col2}>
             </Box>
             
-            <Box className="col" {...col4}>
-              <video src={video3} width={"100%"} height="200px" controls></video>
-            </Box>
             <Box className="col" {...col4}>
               <video src={video1} width={"100%"} height="200px" controls></video>
             </Box>

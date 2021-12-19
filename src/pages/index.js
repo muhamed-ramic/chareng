@@ -13,7 +13,7 @@ import VideoSection from 'containers/Agency/VideoSection';
 import Footer from 'containers/Agency/Footer';
 import { DrawerProvider } from 'common/contexts/DrawerContext';
 import Axios from "axios";
-
+import Loader from 'common/components/Loader/index';
 
 const Main = () => {
 const [data, setData] = useState(null);
@@ -76,7 +76,9 @@ useEffect(() => {
               <VideoSection work={data.work} />
               <TestimonialSection work={data.work} />
             </>
-            : null
+            : <>
+              <Loader width="42px" height="42px" position="relative" left = "50%" top = "50%"/>
+            </>
           }
           <Footer />
 

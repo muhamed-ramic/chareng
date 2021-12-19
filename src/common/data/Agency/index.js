@@ -549,13 +549,13 @@ const data = {
       menuItems: [
         {
           id: 2,
-          url: 'emir.neziric@chargeng.ba',
-          text: 'English and Bosnian: emir.neziric@chargeng.ba',
+          url: 'emir@chargeng.ba',
+          text: 'English and Bosnian: emir@chargeng.ba',
         },
         {
           id: 1,
-          url: 'lejla.cardzic@chargeng.ba',
-          text: 'English and Finnish: lejla.cardzic@chargeng.ba',
+          url: 'lejla@chargeng.ba',
+          text: 'English and Finnish: lejla@chargeng.ba',
         },
       ],
     },

@@ -54,6 +54,21 @@ const FeatureSection = ({
                 description={
                   <Text content={feature.Description ?? ""} {...featureDescription} />
                 }
+                additionalContent={
+                  feature.ExtraFeatures != null ? 
+                  <>
+                    {
+                      feature.ExtraFeatures.map((extra, index) => {
+                        return (
+                          index == 0 || index % 2 == 0 ?
+                          <Heading content={extra} {...featureTitle}/>
+                          :
+                          <Text content={extra} {...featureDescription}/>
+                        )
+                      })
+                    }
+                  </>: null
+                }
               />
             </Box>
           ))}
@@ -141,14 +156,14 @@ FeatureSection.defaultProps = {
     fontWeight: '400',
     color: '#0f2137',
     lineHeight: '1.5',
-    mb: ['10px', '10px', '10px', '20px'],
+    mb: ['10px', '10px', '10px', '10px'],
     background: 'linear-gradient(to right, #f6e27a 0, #f6e27a 22%, #f6e27a 45%, #f6e27a 50%, #f6e27a 55%, #f6e27a 78%, #f6e27a 100%)',
     color: 'transparent',
     letterSpacing: '-0.020em',
   },
   // feature description default style
   featureDescription: {
-    fontSize: '15px',
+    fontSize: ["15px", "17px"],
     lineHeight: '1.75',
     color: '#ffffff',
   },

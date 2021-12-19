@@ -58,8 +58,8 @@ const FeatureBlock = ({
                 {button}
               </ButtonWrapper>
             )}
-          </ContentWrapper>
           {additionalContent}
+          </ContentWrapper>
         </Fragment>
       ) : (
         ''

@@ -12,6 +12,11 @@ const FeatureSectionWrapper = styled.section`
     transform: scale(0.75);
     width: 100%;
   }
+  @media (min-width: 767px) {
+    .logo-container_wrapper > img {
+      transform: scale(0.55);
+    }
+  }
   @media (max-width: 767px) {
     padding: 40px 0 30px 0;
   }
