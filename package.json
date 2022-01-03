@@ -14,9 +14,6 @@
     "logs": "firebase functions:log"
   },
   "dependencies": {
-    "@glidejs/glide": "^3.4.1",
-    "@reach/accordion": "^0.16.1",
-    "@redq/reuse-modal": "^1.2.4",
     "@styled-system/theme-get": "^5.1.2",
     "animate.css": "^4.1.1",
     "firebase-admin": "^9.6.0",
@@ -59,8 +56,7 @@
     "react-tabs": "^3.2.2",
     "styled-components": "^5.2.1",
     "styled-system": "5.1.5",
-    "swiper": "^7.0.6",
-    "tsparticles": "^1.35.2"
+    "swiper": "^7.0.6"
   },
   "devDependencies": {
     "babel-plugin-styled-components": "^1.11.1",
