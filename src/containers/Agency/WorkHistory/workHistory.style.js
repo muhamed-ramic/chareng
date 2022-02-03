@@ -8,9 +8,19 @@ const WorkHistoryWrapper = styled.section`
     padding: 50px 0 60px 0;
   }
   .col.company-images-wrapper {
+    display: flex;
+
+    @media (max-width: 990px) {
+      flex-direction: column;
+      justify-content: space-between;
+    }
     a {
       align-items: normal;
       margin-right: 20px;
+
+      @media (max-width: 990px) {
+        margin-bottom: 20px;
+      }
     }
   }
   .feature__block {
