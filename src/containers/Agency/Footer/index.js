@@ -44,7 +44,7 @@ const Footer = ({
                     <ListItem key={`list__item-${item.id}`}>
                       {
                       widget.isEmailHref?
-                        <a href={"mailto:" + item.url} className="ListItem">{item.text}</a>
+                        <a href={"mailto:" + item.url}>{item.text} <span className="email-address">{item.url}</span></a>
                       :
                        <Link href={item.url}>
                         <a href={item.url} className="ListItem">{item.text}</a>

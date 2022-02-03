@@ -550,12 +550,12 @@ const data = {
         {
           id: 2,
           url: 'emir@chargeng.ba',
-          text: 'English and Bosnian: emir@chargeng.ba',
+          text: 'English and Bosnian:',
         },
         {
           id: 1,
           url: 'lejla@chargeng.ba',
-          text: 'English and Finnish: lejla@chargeng.ba',
+          text: 'English and Finnish:',
         },
       ],
     },

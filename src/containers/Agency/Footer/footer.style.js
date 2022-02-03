@@ -19,7 +19,7 @@ const List = styled.ul``;
 
 const ListItem = styled.li`
   a {
-    color: ${themeGet('colors.white')};
+    color: ${themeGet('colors.black')};
     font-size: 14px;
     line-height: 36px;
     transition: all 0.2s ease;
@@ -28,6 +28,9 @@ const ListItem = styled.li`
       outline: 0;
       text-decoration: none;
       color: ${themeGet('colors.quoteText', '#343d48')};
+    }
+    span.email-address {
+      color: #fff;
     }
   }
 `;
