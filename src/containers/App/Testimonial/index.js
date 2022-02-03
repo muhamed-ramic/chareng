@@ -218,11 +218,11 @@ const TestimonialSection = ({ language,work, sectionWrapper, row, sectionSubTitl
             </Box>
           </Box>
         <Container className="horizontal-line"/>
-          <Box className="col" {...col2}>
+          {/* <Box className="col" {...col2}>
               <Text content={
                 goodByeMessage[language]
               } {...sectionSubTitle}></Text>
-          </Box>
+          </Box> */}
         </TestimonialSliderWrapper>
           ); 
           })

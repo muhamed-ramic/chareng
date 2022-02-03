@@ -1,17 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Link from 'next/link';
+import Link from 'common/components/Link';
 import CountUp from 'react-countup';
 import Box from 'common/components/Box';
 import Card from 'common/components/Card';
 import Text from 'common/components/Text';
 import Heading from 'common/components/Heading';
+import Image from 'common/components/Image';
 import Button from 'common/components/Button';
 import FeatureBlock from 'common/components/FeatureBlock';
 import Container from 'common/components/UI/Container';
 import WorkHistoryWrapper, { CounterUpArea } from './workHistory.style';
 
-const WorkHistory = ({ row, col, cardStyle, title, description, btnStyle }) => {
+import companyA from 'common/assets/image/agency/companies/metalos.jpg';
+import companyB from 'common/assets/image/agency/companies/fokus.jpg';
+import companyC from 'common/assets/image/agency/companies/snea.png';
+
+
+const WorkHistory = ({ row, col, cardStyle, title, description, btnStyle, language }) => {
+  const workTitle = {
+    en: "Companies we worked with:",
+    fi: "Yritykset, joiden kanssa työskentelimme:",
+    bs: "Kompanije sa kojima smo radili:"
+  };
+  console.log('jezike=', language);
+
   return (
     <WorkHistoryWrapper id="workHistorySection">
       <Container>
@@ -20,46 +33,19 @@ const WorkHistory = ({ row, col, cardStyle, title, description, btnStyle }) => {
             <FeatureBlock
               title={
                 <Heading
-                  content="Working With Knowledge, Passion, Heart & Soul "
+                 as="h3"
+                  content={
+                    language == "en" || language == "fi" ? workTitle[language]: workTitle["bs"]
+                  }
                   {...title}
                 />
               }
-              description={
-                <Text
-                  content="We have worked with some leading agencies around the globe and their appreciation is our main strength ."
-                  {...description}
-                />
-              }
-              button={<Button title="WORK HISTORY" {...btnStyle} />}
             />
           </Box>
-          <Box className="col" {...col}>
-            <CounterUpArea>
-              <Card className="card" {...cardStyle}>
-                <h3>
-                  <CountUp start={0} end={20} />+
-                </h3>
-                <Text content="Companies Engaged" />
-              </Card>
-              <Card className="card" {...cardStyle}>
-                <h3>
-                  <CountUp start={0} end={199} duration={5} />
-                </h3>
-                <Text content="Happy Customers" />
-              </Card>
-              <Card className="card" {...cardStyle}>
-                <h3>
-                  <CountUp start={0} end={300} duration={5} />+
-                </h3>
-                <Text content="Project Complete" />
-              </Card>
-              <Card className="card" {...cardStyle}>
-                <Text content="& Much More" />
-                <Link href="#1">
-                  <a>View work history</a>
-                </Link>
-              </Card>
-            </CounterUpArea>
+          <Box className="col company-images-wrapper" {...col}>
+            <Link target="_blank" href="https://www.metalos.eu/"><Image marginRight="20px" width={"300px"} src={companyA?.src} alt="company we worked with"></Image></Link>
+            <Link target="_blank" href="https://www.fokus-bau.at/"><Image marginRight="20px" width={"300px"} src={companyB?.src} alt="company we worked with"></Image></Link>
+            <Link target="_blank" href="https://snea.ba/"><Image marginRight="20px" width={"300px"} src={companyC?.src} alt="company we worked with"></Image></Link>
           </Box>
         </Box>
       </Container>
@@ -90,7 +76,7 @@ WorkHistory.defaultProps = {
   col: {
     pr: '15px',
     pl: '15px',
-    width: [1, 1, 1 / 2, 1 / 2],
+    width: [1, 1, 1 , 1],
     flexBox: true,
     alignSelf: 'center',
   },
@@ -105,7 +91,7 @@ WorkHistory.defaultProps = {
     fontSize: ['26px', '26px', '30px', '40px'],
     lineHeight: '1.5',
     fontWeight: '300',
-    color: '#0f2137',
+    color: '#fff',
     letterSpacing: '-0.025em',
     mb: '20px',
   },

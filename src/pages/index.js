@@ -9,6 +9,7 @@ import Navbar from 'containers/Agency/Navbar';
 import BannerSection from 'containers/Agency/BannerSection';
 import FeatureSection from 'containers/Agency/FeatureSection';
 import TestimonialSection from 'containers/App/Testimonial';
+import WorkHistory from 'containers/Agency/WorkHistory';
 import VideoSection from 'containers/Agency/VideoSection';
 import Footer from 'containers/Agency/Footer';
 import { DrawerProvider } from 'common/contexts/DrawerContext';
@@ -21,10 +22,11 @@ const [lang, setLang] = useState('en');
 
 useEffect(() => {
   const fetchData = async() => {
+    try {
     const promises = [
       Axios.get(`https://enigmatic-shore-54899.herokuapp.com/api/banner?locale=${lang}`),
       Axios.get(`https://enigmatic-shore-54899.herokuapp.com/api/welcome?locale=${lang}`),
-      Axios.get(`https://enigmatic-shore-54899.herokuapp.com/api/feature?populate[OurFeatures][populate]=*&locale=${lang}`),
+      Axios.get(`https://enigmatic-shore-54899.herokuapp.com/api/our-feature?populate[OurFeatures][populate]=*&locale=${lang}`),
       Axios.get(`https://enigmatic-shore-54899.herokuapp.com/api/work?populate[Project][populate]=*&locale=${lang}`),
       Axios.get(`https://enigmatic-shore-54899.herokuapp.com/api/video?populate=*&locale=${lang}`),
       Axios.get(`https://enigmatic-shore-54899.herokuapp.com/api/good-bye?locale=${lang}`),
@@ -40,6 +42,10 @@ useEffect(() => {
       goodBye: goodByeResponse.data
     };
     setData({...gotData});
+  } 
+  catch(err) {
+    console.log(err.message);
+  }
   }
   fetchData();
 }, [lang]);
@@ -82,6 +88,7 @@ useEffect(() => {
             </div>
             </>
           }
+          <WorkHistory language={lang} />
           <Footer />
 
           {/* <AboutUsSection /> */}

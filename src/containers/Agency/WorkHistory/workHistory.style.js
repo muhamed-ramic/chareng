@@ -7,8 +7,22 @@ const WorkHistoryWrapper = styled.section`
   @media (max-width: 990px) {
     padding: 50px 0 60px 0;
   }
+  .col.company-images-wrapper {
+    a {
+      align-items: normal;
+      margin-right: 20px;
+    }
+  }
   .feature__block {
     padding-right: 132px;
+    
+    h3 {
+      background: linear-gradient(to right,#f6e27a 0,#cb9b51 22%,#f6e27a 45%,#f6e27a 50%,#f6e27a 55%,#f6e27a 78%,#f6e27a 100%);
+      color: transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+
     @media only screen and (max-width: 1200px) {
       padding-right: 32px;
     }
