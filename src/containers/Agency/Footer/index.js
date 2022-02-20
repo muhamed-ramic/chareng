@@ -43,14 +43,28 @@ const Footer = ({
                   {widget.menuItems.map((item) => (
                     <ListItem key={`list__item-${item.id}`}>
                       {
-                      widget.isEmailHref?
-                        <a href={"mailto:" + item.url}>{item.text} <span className="email-address">{item.url}</span></a>
-                      :
-                       <Link href={item.url}>
-                        <a href={item.url} className="ListItem">{item.text}</a>
-                       </Link>
+                        widget.isEmailHref ?
+                          <>
+                            <a href={"mailto:" + item.url}>{item.text} <span className="email-address">{item.url}</span></a>
+                            {
+                              item.url == "emir@chargeng.ba" ?
+                                <span className="tel">+38761327410</span>
+                                :
+                                <span></span>
+                            }
+                            {
+                              item.url == "lejla@chargeng.ba" ?
+                                <span className="tel">+358402518432</span>
+                                :
+                                <span></span>
+                            }
+                          </>
+                          :
+                          <Link href={item.url}>
+                            <a href={item.url} className="ListItem">{item.text}</a>
+                          </Link>
                       }
-                      
+
                     </ListItem>
                   ))}
                 </List>

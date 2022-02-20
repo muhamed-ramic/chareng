@@ -18,6 +18,12 @@ const FooterWrapper = styled.section`
 const List = styled.ul``;
 
 const ListItem = styled.li`
+  span.tel {
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: #fff;
+  }
   a {
     color: ${themeGet('colors.black')};
     font-size: 14px;
