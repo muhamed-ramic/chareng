@@ -13,6 +13,7 @@ const WorkHistoryWrapper = styled.section`
     @media (max-width: 990px) {
       flex-direction: column;
       justify-content: space-between;
+      align-items: center;
     }
     a {
       align-items: normal;

@@ -15,7 +15,8 @@ import WorkHistoryWrapper, { CounterUpArea } from './workHistory.style';
 import companyA from 'common/assets/image/agency/companies/metalos.jpg';
 import companyB from 'common/assets/image/agency/companies/fokus.jpg';
 import companyC from 'common/assets/image/agency/companies/snea.png';
-
+import companyD from 'common/assets/image/agency/companies/adriale_metal.png';
+import companyE from 'common/assets/image/agency/companies/alkus.png';
 
 const WorkHistory = ({ row, col, cardStyle, title, description, btnStyle, language }) => {
   const workTitle = {
@@ -46,6 +47,8 @@ const WorkHistory = ({ row, col, cardStyle, title, description, btnStyle, langua
             <Link target="_blank" href="https://www.metalos.eu/"><Image marginRight="20px" width={"300px"} src={companyA?.src} alt="company we worked with"></Image></Link>
             <Link target="_blank" href="https://www.fokus-bau.at/"><Image marginRight="20px" width={"300px"} src={companyB?.src} alt="company we worked with"></Image></Link>
             <Link target="_blank" href="https://snea.ba/"><Image marginRight="20px" width={"300px"} src={companyC?.src} alt="company we worked with"></Image></Link>
+            <Link target="_blank" href="https://adrialemetal.com/index.php/en"><Image marginRight="20px" width={"300px"} src={companyD?.src} alt="company we worked with"></Image></Link>
+            <Link target="_blank" href="https://www.alkus.eu/index.php/en"><Image marginRight="20px" width={"300px"} src={companyE?.src} alt="company we worked with"></Image></Link>
           </Box>
         </Box>
       </Container>
