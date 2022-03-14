@@ -20,9 +20,9 @@ import companyE from 'common/assets/image/agency/companies/alkus.png';
 
 const WorkHistory = ({ row, col, cardStyle, title, description, btnStyle, language }) => {
   const workTitle = {
-    en: "Companies we worked with:",
-    fi: "Yritykset, joiden kanssa työskentelimme:",
-    bs: "Kompanije sa kojima smo radili:"
+    en: "Some of our clients",
+    fi: "Some of our clients",
+    bs: "Some of our clients"
   };
   console.log('jezike=', language);
 
