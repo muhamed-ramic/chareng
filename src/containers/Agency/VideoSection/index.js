@@ -20,9 +20,9 @@ const VideoSection = ({
     <VideoSectionWrapper id="videoSection">
       <Container>
         <Box {...sectionHeader}>
-          <Text content={work.data.Heading ?? "How We Work"} {...sectionSubTitle} />
+          <Text content={work.data[0].Heading ?? "How We Work"} {...sectionSubTitle} />
           <Heading
-            content={work.data.Description ?? "Below is some of our work realised in various designing programs. If you would like, we could provide you more details about presented work. Our design know-how ranges from mechanical to civil engineering. If you want our team to make your ideas come true, contact us via contact information provided at the end of our web page."}
+            content={work.data[0].Description ?? "Below is some of our work realised in various designing programs. If you would like, we could provide you more details about presented work. Our design know-how ranges from mechanical to civil engineering. If you want our team to make your ideas come true, contact us via contact information provided at the end of our web page."}
             {...sectionTitle}
           />
           <Container className="horizontal-line"/>
