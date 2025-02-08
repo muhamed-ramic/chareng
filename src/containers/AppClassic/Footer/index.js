@@ -43,7 +43,7 @@ const Footer = () => {
           <Menu>
             {menu.map((item) => (
               <MenuItem key={`footer-link${item.id}`}>
-                <Link href={item.link}>
+                <Link legacyBehavior href={item.link}>
                   <a>{item.text}</a>
                 </Link>
               </MenuItem>

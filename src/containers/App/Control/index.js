@@ -66,7 +66,7 @@ const ControlSection = ({
                 />
               }
               button={
-                <Link href="#">
+                <Link legacyBehavior href="#">
                   <a>
                     <Button title="LEARN MORE" {...button} {...btnStyle} />
                   </a>

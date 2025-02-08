@@ -26,7 +26,7 @@ const Blog = () => {
               <BlogCard>
                 <NextImage src={image} alt="blog image" />
                 <Heading as="h3" content={title} />
-                <Link href={link}>
+                <Link legacyBehavior href={link}>
                   <a className="blogLink">
                     Learn more <Icon size={12} icon={chevronRight} />
                   </a>

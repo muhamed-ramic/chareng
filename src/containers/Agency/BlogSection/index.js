@@ -43,7 +43,7 @@ const BlogSection = ({
                 />
               }
               title={
-                <Link href={post.postLink} {...blogTitle}>
+                <Link legacyBehavior href={post.postLink} {...blogTitle}>
                   {post.title}
                 </Link>
               }

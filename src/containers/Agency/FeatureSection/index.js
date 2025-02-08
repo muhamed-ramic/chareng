@@ -28,22 +28,22 @@ const FeatureSection = ({
     <FeatureSectionWrapper id="featureSection">
       <Container>
         <Box {...sectionHeader}>
-          <Text content={welcome.data.attributes.WelcomeText ?? "Welcome To"} {...sectionSubTitle} />
+          <Text content={welcome.data.WelcomeText ?? "Welcome To"} {...sectionSubTitle} />
           <Container className="logo-container_wrapper">
              <img src={Logo3dImage?.src} alt="Logo 3d" />
           </Container>
           <Container className="horizontal-line">
           </Container>
           
-          <Text content={feature.data.attributes.Heading ?? "What We Do"} {...sectionSubTitle} />
+          <Text content={feature.data.Heading ?? "What We Do"} {...sectionSubTitle} />
           
           <Heading
-            content={feature.data.attributes.Description ?? "Featured Service that We Provide"}
+            content={feature.data.Description ?? "Featured Service that We Provide"}
             {...sectionTitle}
           />
         </Box>
         <Box className="row" {...row}>
-          {feature.data.attributes.OurFeatures.map((feature, index) => (
+          {feature.data.OurFeatures.map((feature, index) => (
             <Box className="col" {...col} key={`feature-${index}`}>
               <FeatureBlock
                 icon={<Icon icon={data.features[index].icon} />}

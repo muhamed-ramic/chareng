@@ -4,7 +4,8 @@ import { openModal, closeModal } from '@redq/reuse-modal';
 import NavbarWrapper from 'common/components/Navbar';
 import Drawer from 'common/components/Drawer';
 import Button from 'common/components/Button';
-import Link from 'common/components/Link';
+import CustomLink from 'common/components/Link';
+import NextLink  from 'next/link';
 import Logo from 'common/components/UIElements/Logo';
 import HamburgMenu from 'common/components/HamburgMenu';
 import ScrollSpyMenu from 'common/components/ScrollSpyMenu';
@@ -40,7 +41,7 @@ const CloseModalButtonAlt = () => (
   />
 );
 
-const Navbar = ({ navbarStyle, logoStyle, menuWrapper,langWrapper, row, language, setLanguage }) => {
+const Navbar = ({ navbarStyle, logoStyle, menuWrapper, langWrapper, row, language, setLanguage }) => {
   const { state, dispatch } = useContext(DrawerContext);
 
   // Search modal handler
@@ -99,14 +100,14 @@ const Navbar = ({ navbarStyle, logoStyle, menuWrapper,langWrapper, row, language
   return (
     <NavbarWrapper {...navbarStyle}>
       <Container>
-      <Box {...row}>
-        <Logo
-          href="#"
-          logoSrc={LogoImage}
-          title="Agency"
-          logoStyle={logoStyle}
-        />
-        <Box {...menuWrapper}>
+        <Box {...row}>
+          <Logo
+            href="#"
+            logoSrc={LogoImage}
+            title="Agency"
+            logoStyle={logoStyle}
+          />
+          <Box {...menuWrapper}>
             <ScrollSpyMenu
               className="main_menu"
               menuItems={data.menuItems[language]}
@@ -115,51 +116,68 @@ const Navbar = ({ navbarStyle, logoStyle, menuWrapper,langWrapper, row, language
             <Box className="lang_wrapper" {...langWrapper}>
               {
                 language == 'en' ?
-                 <>
-                 <Link className="active" disabled={true} color={"#000"} href="#lang">
-                    <FlagIcon color='#000' code="GB" size={28} />
-                  </Link>
-                  <Link onClick={() => setLanguage('bs-BA')} color={"#000"} href="#lang">
-                    <FlagIcon code="BA" size={28} />
-                  </Link>
-                  <Link onClick={() => setLanguage('fi')} color={"#000"} href="#lang">
-                    <FlagIcon code="FI" size={28} />
-                  </Link>
-                 </>
-                : null
+                  <>
+                    <NextLink legacyBehavior href="#lang" legacyBehavior>
+                      <CustomLink className="active" disabled={true} color={"#000"}>
+                        <FlagIcon color='#000' code="GB" size={28} />
+                      </CustomLink>
+                    </NextLink>
+                    <NextLink legacyBehavior href="#lang" legacyBehavior>
+                      <CustomLink onClick={() => setLanguage('bs-BA')} color={"#000"}>
+                        <FlagIcon code="BA" size={28} />
+                      </CustomLink>
+                    </NextLink>
+                    <NextLink legacyBehavior href="#lang" legacyBehavior>
+                      <CustomLink onClick={() => setLanguage('fi')} color={"#000"}>
+                        <FlagIcon code="FI" size={28} />
+                      </CustomLink>
+                    </NextLink>
+                  </>
+                  : null
               }
               {
                 language == 'bs-BA' ?
-                 <>
-                 <Link className="active" disabled={true} color={"#000"} href="#lang">
-                    <FlagIcon color='#000' code="BA" size={28} />
-                  </Link>
-                  <Link onClick={() => setLanguage('en')} color={"#000"} href="#lang">
-                    <FlagIcon code="GB" size={28} />
-                  </Link>
-                  <Link onClick={() => setLanguage('fi')} color={"#000"} href="#lang">
-                    <FlagIcon code="FI" size={28} />
-                  </Link>
-                 </>
-                : null
+                  <>
+                    <NextLink legacyBehavior href="#lang" legacyBehavior>
+                      <CustomLink className="active" disabled={true} color={"#000"}>
+                        <FlagIcon color='#000' code="BA" size={28} />
+                      </CustomLink>
+                    </NextLink>
+                    <NextLink legacyBehavior href="#lang" legacyBehavior>
+                      <CustomLink onClick={() => setLanguage('en')} color={"#000"}>
+                        <FlagIcon code="GB" size={28} />
+                      </CustomLink>
+                    </NextLink>
+                    <NextLink legacyBehavior href="#lang" legacyBehavior>
+                      <CustomLink onClick={() => setLanguage('fi')} color={"#000"}>
+                        <FlagIcon code="FI" size={28} />
+                      </CustomLink>
+                    </NextLink>
+                  </>
+                  : null
               }
               {
                 language == 'fi' ?
-                 <>
-                 <Link className="active" disabled={true} color={"#000"} href="#lang">
-                    <FlagIcon color='#000' code="FI" size={28} />
-                  </Link>
-                  <Link onClick={() => setLanguage('en')} color={"#000"} href="#lang">
-                    <FlagIcon code="GB" size={28} />
-                  </Link>
-                  <Link onClick={() => setLanguage('bs-BA')} color={"#000"} href="#lang">
-                    <FlagIcon code="BA" size={28} />
-                  </Link>
-                 </>
-                : null
+                  <>
+                    <NextLink legacyBehavior href="#lang" legacyBehavior>
+                      <CustomLink className="active" disabled={true} color={"#000"}>
+                        <FlagIcon color='#000' code="FI" size={28} />
+                      </CustomLink>
+                    </NextLink>
+                    <NextLink legacyBehavior href="#lang" legacyBehavior>
+                      <CustomLink onClick={() => setLanguage('en')} color={"#000"}>
+                        <FlagIcon code="GB" size={28} />
+                      </CustomLink>
+                    </NextLink>
+                    <NextLink legacyBehavior href="#lang" legacyBehavior>
+                      <CustomLink onClick={() => setLanguage('bs-BA')} color={"#000"}>
+                        <FlagIcon code="BA" size={28} />
+                      </CustomLink>
+                    </NextLink>
+                  </>
+                  : null
               }
-             
-           </Box>
+            </Box>
             <Drawer
               width="420px"
               placement="right"

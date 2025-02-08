@@ -34,7 +34,7 @@ const Footer = ({
                 <List>
                   {widget.menuItems.map((item) => (
                     <ListItem key={`list__item-${item.id}`}>
-                      <Link href={item.url}>
+                      <Link legacyBehavior href={item.url}>
                         <a className="ListItem">{item.text}</a>
                       </Link>
                     </ListItem>

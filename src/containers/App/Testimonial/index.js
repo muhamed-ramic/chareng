@@ -25,6 +25,7 @@ import NextImage from 'common/components/NextImage';
 import Link from 'common/components/Link';
 import LinkWrapper from './link.style';
 
+const deployURL = "localhost:1337/"
 
 const TestimonialSection = ({ language,work, sectionWrapper, row, sectionSubTitle, col, col2, col3, col4 }) => {
   const goodByeMessage = {
@@ -35,15 +36,15 @@ const TestimonialSection = ({ language,work, sectionWrapper, row, sectionSubTitl
   
   const getImgUrl = (projectPictures) => {
     let images = [];
-    if (projectPictures.data) {
-      projectPictures.data.filter(projectPicture => {
+    if (projectPictures) {
+      projectPictures.filter(projectPicture => {
         let awsImgUrl = "";
         
-        awsImgUrl = projectPicture.attributes.formats.large ?? projectPicture.attributes.formats.small ;
+        awsImgUrl = projectPicture.formats.large ?? projectPicture.formats.small ;
         awsImgUrl = awsImgUrl.url;
         
         images.push({
-          original: awsImgUrl ,
+          original: projectPicture.url ,
           originalHeight: '200px',
           thumbnailAlt: 'thumbnailproject image',
       });
@@ -92,7 +93,7 @@ const TestimonialSection = ({ language,work, sectionWrapper, row, sectionSubTitl
       <Container>
       <TestimonialSliderWrapper>
         {
-          work.data.attributes.Project.map(project => {
+          work.data[0].Project.map(project => {
             return (
             project.isItLastProject == false ? 
             <>
@@ -156,7 +157,7 @@ const TestimonialSection = ({ language,work, sectionWrapper, row, sectionSubTitl
                 )
               }): null
             } */}
-            <Box className="col" {...col4}>
+            {/* <Box className="col" {...col4}>
             <ImageGallery
                   items={[
                     {
@@ -211,13 +212,22 @@ const TestimonialSection = ({ language,work, sectionWrapper, row, sectionSubTitl
                   <NextImage width={"100%"} height={"200px"} loading='lazy' width={'100%'} src={picture5?.src} alt="project picture"></NextImage>
                 </Link>
               </LinkWrapper>
-            </Box>
+            </Box> */}
 
-            <Box className="col" {...col4}>
+            {/* <Box className="col" {...col4}>
               <video src={video1} width={"100%"} height="200px" controls></video>
-            </Box>
+            </Box> */}
           </Box>
         <Container className="horizontal-line"/>
+        {
+          project.videos.map((video)=> {
+            return (
+              <Box className="col" {...col4}>
+                <video src={video?.src} width={"100%"} height="200px" controls></video>
+              </Box>
+            )
+          })
+        }
           {/* <Box className="col" {...col2}>
               <Text content={
                 goodByeMessage[language]

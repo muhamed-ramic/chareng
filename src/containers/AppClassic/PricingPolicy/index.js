@@ -99,7 +99,7 @@ const PricingPolicy = () => {
                   />
                   {item.trail ? (
                     <div className="trail">
-                      <Link href={item.trailLink}>
+                      <Link legacyBehavior href={item.trailLink}>
                         <a>Or Start {item.trail} Days trail</a>
                       </Link>
                     </div>

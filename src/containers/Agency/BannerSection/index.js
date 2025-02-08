@@ -40,13 +40,13 @@ const BannerSection = ({
             <FeatureBlock
               title={
                 <Heading
-                  content={heading.data.attributes.Heading ?? "ChargENG Inc"}
+                  content={heading.data.Heading ?? "ChargENG Inc"}
                   {...title}
                 />
               }
               description={
                 <Text
-                  content={heading.data.attributes.Description ?? "We are young, vibrant and enthusiastic design engineering team who strives to reach exactly what our customers want"}
+                  content={heading.data.Description ?? "We are young, vibrant and enthusiastic design engineering team who strives to reach exactly what our customers want"}
                   {...description}
                 />
               }

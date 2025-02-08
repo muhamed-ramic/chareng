@@ -25,7 +25,7 @@ const Footer = () => {
               <NextImage src={footerWidget.logo} alt="Logo" />
               <p>
                 © 2020 Team
-                <Link href={footerWidget.siteUrl}>
+                <Link legacyBehavior href={footerWidget.siteUrl}>
                   <a>{footerWidget.siteName}</a>
                 </Link>
               </p>

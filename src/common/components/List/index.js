@@ -6,7 +6,7 @@ import { ListWrapper } from './list.style';
 const List = ({ className, icon, text, link, ...props }) => (
   <ListWrapper className={className}>
     {link ? (
-      <Link href={link}>
+      <Link legacyBehavior href={link}>
         <a>
           {icon}
           {text}

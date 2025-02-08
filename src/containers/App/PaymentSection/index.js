@@ -74,7 +74,7 @@ const PaymentSection = ({
                 />
               }
               button={
-                <Link href="#">
+                <Link legacyBehavior href="#">
                   <a>
                     <Button title="HOW IT WORKS" {...button} {...btnStyle} />
                   </a>

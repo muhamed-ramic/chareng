@@ -60,7 +60,7 @@ const Footer = ({
                             }
                           </>
                           :
-                          <Link href={item.url}>
+                          <Link legacyBehavior href={item.url}>
                             <a href={item.url} className="ListItem">{item.text}</a>
                           </Link>
                       }

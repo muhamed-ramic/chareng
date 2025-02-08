@@ -65,12 +65,12 @@ const DomainSection = ({
               />
             </EmailInputWrapper>
             <ButtonWrapper>
-              <Link href="#services">
+              <Link legacyBehavior href="#services">
                 <a>
                   <Button {...button} {...btnStyle} />
                 </a>
               </Link>
-              <Link href="#">
+              <Link legacyBehavior href="#">
                 <a>
                   <Button
                     {...button}

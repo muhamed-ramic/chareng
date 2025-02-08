@@ -10,7 +10,7 @@ const CopyrightSection = () => {
       <ul>
         {data.social_profile.map((profile, index) => (
           <li key={`profile_key_${index}`}>
-            <Link href="#1">
+            <Link legacyBehavior href="#1">
               <a>
                 <i className={profile.icon} />
               </a>

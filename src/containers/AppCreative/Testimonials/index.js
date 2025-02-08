@@ -44,7 +44,7 @@ const TestimonialSection = () => {
                       <Heading as="h3" content={item.name} />
                       <Text content={item.designation} />
                     </Box>
-                    <Link href="#">
+                    <Link legacyBehavior href="#">
                       <a aria-label="twitter">
                         <Icon icon={twitter} size={24} />
                       </a>
