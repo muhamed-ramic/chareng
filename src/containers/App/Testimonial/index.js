@@ -25,7 +25,7 @@ import NextImage from 'common/components/NextImage';
 import Link from 'common/components/Link';
 import LinkWrapper from './link.style';
 
-const deployURL = "localhost:1337/"
+const deployURL = "https://chareng-strapi-1-0-0.onrender.com"
 
 const TestimonialSection = ({ language,work, sectionWrapper, row, sectionSubTitle, col, col2, col3, col4 }) => {
   const goodByeMessage = {
@@ -44,7 +44,7 @@ const TestimonialSection = ({ language,work, sectionWrapper, row, sectionSubTitl
         awsImgUrl = awsImgUrl.url;
         
         images.push({
-          original: projectPicture.url ,
+          original: deployURL + awsImgUrl ,
           originalHeight: '200px',
           thumbnailAlt: 'thumbnailproject image',
       });

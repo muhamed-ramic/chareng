@@ -24,12 +24,12 @@ useEffect(() => {
   const fetchData = async() => {
     try {
     const promises = [
-      Axios.get(`http://https://chareng-strapi-1-0-0.onrender.com/api/banner?locale=${lang}`),
-      Axios.get(`http://https://chareng-strapi-1-0-0.onrender.com/api/welcome?locale=${lang}`),
-      Axios.get(`http://https://chareng-strapi-1-0-0.onrender.com/api/our-feature?populate[OurFeatures][populate]=*&locale=${lang}`),
-      Axios.get(`http://https://chareng-strapi-1-0-0.onrender.com/api/works?populate[Project][populate]=*&locale=${lang}`),
-      // Axios.get(`http://https://chareng-strapi-1-0-0.onrender.com/api/video?populate=*&locale=${lang}`),
-      // Axios.get(`http://https://chareng-strapi-1-0-0.onrender.com/api/good-bye?locale=${lang}`),
+      Axios.get(`https://chareng-strapi-1-0-0.onrender.com/api/banner?locale=${lang}`),
+      Axios.get(`https://chareng-strapi-1-0-0.onrender.com/api/welcome?locale=${lang}`),
+      Axios.get(`https://chareng-strapi-1-0-0.onrender.com/api/our-feature?populate[OurFeatures][populate]=*&locale=${lang}`),
+      Axios.get(`https://chareng-strapi-1-0-0.onrender.com/api/works?populate[Project][populate]=*&locale=${lang}`),
+      // Axios.get(`https://chareng-strapi-1-0-0.onrender.com/api/video?populate=*&locale=${lang}`),
+      // Axios.get(`https://chareng-strapi-1-0-0.onrender.com/api/good-bye?locale=${lang}`),
     ];
     const [bannerResponse, welcomeResponse, featureResponse, workResponse] = await Promise.all(promises);
     let gotData = {
@@ -107,13 +107,13 @@ export default Main;
 
 // export async function getServerSideProps() {
 //   const promises = [
-//     Axios.get("http://https://chareng-strapi-1-0-0.onrender.com/api/banner"),
-//     Axios.get("http://https://chareng-strapi-1-0-0.onrender.com/api/welcome"),
-//     Axios.get("http://https://chareng-strapi-1-0-0.onrender.com/api/feature?populate[OurFeatures][populate]=*"),
-//     Axios.get("http://https://chareng-strapi-1-0-0.onrender.com/api/work?populate[Project][populate]=*"),
-//     Axios.get("http://https://chareng-strapi-1-0-0.onrender.com/api/video?populate=*"),
-//     Axios.get("http://https://chareng-strapi-1-0-0.onrender.com/api/good-bye"),
-//     Axios.get("http://https://chareng-strapi-1-0-0.onrender.com/api/footer?populate[Links][populate]=*")
+//     Axios.get("https://chareng-strapi-1-0-0.onrender.com/api/banner"),
+//     Axios.get("https://chareng-strapi-1-0-0.onrender.com/api/welcome"),
+//     Axios.get("https://chareng-strapi-1-0-0.onrender.com/api/feature?populate[OurFeatures][populate]=*"),
+//     Axios.get("https://chareng-strapi-1-0-0.onrender.com/api/work?populate[Project][populate]=*"),
+//     Axios.get("https://chareng-strapi-1-0-0.onrender.com/api/video?populate=*"),
+//     Axios.get("https://chareng-strapi-1-0-0.onrender.com/api/good-bye"),
+//     Axios.get("https://chareng-strapi-1-0-0.onrender.com/api/footer?populate[Links][populate]=*")
 //   ]
 //   const [bannerResponse, welcomeResponse, featureResponse, workResponse,
 //         videoResponse, goodByeResponse, footerResponse] = await Promise.all(promises);
