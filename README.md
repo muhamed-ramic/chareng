@@ -4,7 +4,7 @@
 - Strapi 
 - NextJS
 - Heroku (for deployment Strapi)
-### Client details:  Online at: https://distracted-archimedes-555af2.netlify.app/
+### Client details:  Online at:  https://chargeng.netlify.app/#lang
 ### Backend details: Online at: https://chareng-strapi-1-0-0.onrender.com/api
 #### Work highlight: 
 - Simple landing pages developed using redQ templates in NextJS.
