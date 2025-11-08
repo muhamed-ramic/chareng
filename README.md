@@ -4,13 +4,15 @@
 ### Tech stack: 
 - Strapi 
 - NextJS
-- Heroku (for deployment Strapi)
+- Docker image for Strapi backend.
+- Render PaaS
 
 ### Note: Currently site is loading because of Strapi API bandwidth is slow.
 
 #### Work highlight: 
 - Simple landing pages developed using redQ templates in NextJS.
 - Used Strapi for the custom editing videos url, titles, sections on the page.
+
 
 
 
